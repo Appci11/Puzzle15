@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">puzzle15</string>
+
+    <array name="languages">
+        <item>English</item>
+        <item>Lithuanian</item>
+    </array>
+
+    <array name="cardStyle">
+        <item>Numbers</item>
+        <item>Letters</item>
+    </array>
 </resources>
