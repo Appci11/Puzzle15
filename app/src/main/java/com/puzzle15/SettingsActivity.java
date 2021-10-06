@@ -2,17 +2,20 @@ package com.puzzle15;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class SettingsActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
-    SettingsTabFragmentAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +25,21 @@ public class SettingsActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
 
-        FragmentManager fm = getSupportFragmentManager();
-        adapter = new SettingsTabFragmentAdapter(fm, getLifecycle());
-        viewPager.setAdapter(adapter);
+        tabLayout.addTab(tabLayout.newTab().setText("Game"), 0);        //unhardcode text
+        tabLayout.addTab(tabLayout.newTab().setText("Graphics"), 1);    //unhardcode text
+        tabLayout.addTab(tabLayout.newTab().setText("Sound"), 2);       //unhardcode text
 
-        tabLayout.addTab(tabLayout.newTab().setText("Game"));   //unhardcode text later
-        tabLayout.addTab(tabLayout.newTab().setText("Graphics"));   //unhardcode text later
-        tabLayout.addTab(tabLayout.newTab().setText("Sound"));   //unhardcode text later
+        FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(SettingsActivity.this);
+        viewPager.setAdapter(pagerAdapter);
+
+        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                if (position == 0) tab.setText("Game");     //unhardcode text
+                if (position == 1) tab.setText("Graphics"); //unhardcode text
+                if (position == 2) tab.setText("Sound");    //unhardcode text
+            }
+        }).attach();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -46,12 +57,29 @@ public class SettingsActivity extends AppCompatActivity {
 
             }
         });
+        viewPager.setCurrentItem(0);
+    }
 
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                tabLayout.selectTab(tabLayout.getTabAt(position));
-            }
-        });
+
+    class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+        public ScreenSlidePagerAdapter(AppCompatActivity fa) {
+            super(fa);
+        }
+
+        @Override
+        public Fragment createFragment(int position) {
+            Fragment frag_new = null;
+            if (position == 0) frag_new = new SettingsTabGameFragment();
+            if (position == 1) frag_new = new SettingsTabGraphicsFragment();
+            if (position == 2) frag_new = new SettingsTabSoundFragment();
+            return frag_new;
+        }
+
+        @Override
+        public int getItemCount() {
+            return 3;   //nes 3 tab'ai, jei ka pakeist
+        }
+
+
     }
 }
