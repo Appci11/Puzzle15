@@ -1,14 +1,15 @@
 package com.puzzle15;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout;
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
@@ -20,34 +21,19 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
-        btnRandomGame.setOnClickListener(new View.OnClickListener() {
+        btnRandomGame.setOnClickListener(this);
+        btnCustomGame.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
+        btnAbout.setOnClickListener(this);
+
+// pvz jei kitur reiketu
+ /*       btnRandomGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RandomGameActivity.class);
                 startActivity(intent);
             }
-        });
-        btnCustomGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CustomGameActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
-            }
-        });
+        });*/
     }
 
     private void initViews() {
@@ -56,5 +42,27 @@ public class MainActivity extends AppCompatActivity {
         btnSettings = findViewById(R.id.btnSettings);
         btnAbout = findViewById(R.id.btnAbout);
         imgLogo = findViewById(R.id.imgLogo);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.btnRandomGame:
+                intent = new Intent(MainActivity.this, RandomGameActivity.class);
+                break;
+            case R.id.btnCustomGame:
+                intent = new Intent(MainActivity.this, CustomGameActivity.class);
+                break;
+            case R.id.btnSettings:
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                break;
+            case R.id.btnAbout:
+                intent = new Intent(MainActivity.this, AboutActivity.class);
+                break;
+            default:
+                Toast.makeText(this, "Kriu", Toast.LENGTH_SHORT).show();
+        }
+        startActivity(intent);
     }
 }
