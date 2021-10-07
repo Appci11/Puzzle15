@@ -59,7 +59,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:width="200dp"
-        android:text="About"
+        android:text="@string/about"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
