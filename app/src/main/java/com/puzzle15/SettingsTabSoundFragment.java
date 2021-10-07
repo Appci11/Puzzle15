@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 public class SettingsTabSoundFragment extends Fragment {
 
-    Switch swchEffects, swchMusic;
+    SwitchCompat swchEffects, swchMusic;
     SeekBar sbEffects, sbMusic;
 
     @Nullable

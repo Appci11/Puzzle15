@@ -9,6 +9,7 @@
     <array name="cardStyle">
         <item>Numbers</item>
         <item>Letters</item>
+        <item>Picture</item>
     </array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
