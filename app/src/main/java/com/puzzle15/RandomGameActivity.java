@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Console;
 import java.util.Timer;
@@ -46,12 +47,27 @@ public class RandomGameActivity extends MainActivity {
         timer = new Timer();
         startTimer();
 
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(RandomGameActivity.this, "Return to main menu pressed", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RandomGameActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        resetGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RandomGameActivity.this, RandomGameActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Game board setup
 
         for (int row = 0; row < gameTiles.length; row++){
             for (int column = 0; column < gameTiles[0].length; column++){
                 int gameTileIndex = row * (gameTiles.length)+ column;
-
                 ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
 
                 if(gameTileIndex == 15) { //quick hack for last piece
@@ -92,20 +108,7 @@ public class RandomGameActivity extends MainActivity {
                 gameTiles[row][column] = gameTile;
             }
         }
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RandomGameActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        resetGame.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                  Intent intent = new Intent(RandomGameActivity.this, RandomGameActivity.class);
-                  startActivity(intent);
-             }
-        });
+
 
     }
 
