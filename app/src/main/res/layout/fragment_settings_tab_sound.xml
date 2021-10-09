@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Volume"
+        android:text="@string/volume"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Songs Playlist"
+        android:text="@string/music"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swchMusic" />
@@ -52,7 +52,7 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
-        android:text="Effects"
+        android:text="@string/effects"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtVolume" />
 
@@ -61,26 +61,8 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:text="Music"
+        android:text="@string/music"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swchEffects" />
-
-    <CheckBox
-        android:id="@+id/chkBoxSong1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="insert song name here"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMusic" />
-
-    <CheckBox
-        android:id="@+id/chkBoxSong2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="insert song name here"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chkBoxSong1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

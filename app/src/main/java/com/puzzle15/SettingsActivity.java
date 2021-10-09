@@ -26,9 +26,9 @@ public class SettingsActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Game"), 0);        //unhardcode text
-        tabLayout.addTab(tabLayout.newTab().setText("Graphics"), 1);    //unhardcode text
-        tabLayout.addTab(tabLayout.newTab().setText("Sound"), 2);       //unhardcode text
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.game)), 0);
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.graphics)), 1);
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.sound)), 2);
 
         FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(SettingsActivity.this);
         viewPager.setAdapter(pagerAdapter);
@@ -36,9 +36,9 @@ public class SettingsActivity extends AppCompatActivity {
         new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                if (position == 0) tab.setText("Game");     //unhardcode text
-                if (position == 1) tab.setText("Graphics"); //unhardcode text
-                if (position == 2) tab.setText("Sound");    //unhardcode text
+                if (position == 0) tab.setText(getString(R.string.game));
+                if (position == 1) tab.setText(getString(R.string.graphics));
+                if (position == 2) tab.setText(getString(R.string.sound));
             }
         }).attach();
 
