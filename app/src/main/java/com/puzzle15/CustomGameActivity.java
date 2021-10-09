@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class CustomGameActivity extends AppCompatActivity {
 
-    private Button btnStartCustomGame, StartAIPlay;
+    private Button btnStartCustomGame, btnStartAIPlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class CustomGameActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        StartAIPlay.setOnClickListener(new View.OnClickListener() {
+        btnStartAIPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CustomGameActivity.this, RandomGameActivity.class);
@@ -36,6 +36,6 @@ public class CustomGameActivity extends AppCompatActivity {
 
     private void initViews() {
         btnStartCustomGame = findViewById(R.id.btnStartCustomGame);
-        StartAIPlay = findViewById(R.id.StartAIPlay);
+        btnStartAIPlay = findViewById(R.id.btnStartAIPlay);
     }
 }
