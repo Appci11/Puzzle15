@@ -2,6 +2,25 @@
     <string name="app_name">puzzle15</string>
 
     <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="random_game">Random Game</string>
+    <string name="language">Language</string>
+    <string name="card_style">Card style</string>
+    <string name="game">Game</string>
+    <string name="graphics">Graphics</string>
+    <string name="sound">Sound</string>
+
+    <string name="steps_to_finish">Steps to finish:</string>
+    <string name="custom_game">Custom game</string>
+    <string name="start">Start</string>
+    <string name="watch_ai">Watch AI play</string>
+
+    <string name="volume">Volume</string>
+    <string name="effects">Effects</string>
+    <string name="music">Music</string>
+
+
+
 
 
     <array name="languages">
