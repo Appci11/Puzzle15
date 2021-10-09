@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">puzzle15</string>
+
 
     <string name="about">Apie</string>
+    <string name="settings">Nustatymai</string>
+    <string name="random_game">Atsitiktinis žaidimas</string>
+    <string name="language">Kalba</string>
+    <string name="card_style">Kortelių stilius</string>
+    <string name="game">Žaidimas</string>
+    <string name="graphics">Grafika</string>
+    <string name="sound">Garsas</string>
+
+    <string name="steps_to_finish">Žingsniai iki pabaigos:</string>
+    <string name="custom_game">Pasirinktinis žaidimas</string>
+    <string name="start">Pradėti</string>
+    <string name="watch_ai">Žiūrėti AI žaidimą</string>
+
+    <string name="volume">Garsumas</string>
+    <string name="effects">Efektai</string>
+    <string name="music">Muzika</string>
+
+
+
 
     <array name="languages">
         <item>Anglų</item>
