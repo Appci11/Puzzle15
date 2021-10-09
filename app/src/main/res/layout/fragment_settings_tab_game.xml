@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsTabGameFragment">
+    android:padding="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="game tab" />
+        android:id="@+id/txtLanguages"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Language"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <Spinner
+        android:id="@+id/spnCountry"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/languages"
+        app:layout_constraintBottom_toBottomOf="@+id/txtLanguages"
+        app:layout_constraintStart_toEndOf="@+id/txtLanguages"
+        app:layout_constraintTop_toTopOf="@+id/txtLanguages" />
+
+    <TextView
+        android:id="@+id/txtCardStyle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Card Style"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguages" />
+
+    <Spinner
+        android:id="@+id/spnCardStyle"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:entries="@array/cardStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/txtCardStyle"
+        app:layout_constraintStart_toEndOf="@+id/txtCardStyle"
+        app:layout_constraintTop_toTopOf="@+id/txtCardStyle" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

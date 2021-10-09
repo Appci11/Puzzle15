@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="about">Apie</string>
+
+
+    <array name="languages">
+        <item>Anglų</item>
+        <item>Lietuvių</item>
+    </array>
+
+    <array name="cardStyle">
+        <item>Skaičiai</item>
+        <item>Raidės</item>
+        <item>Nuotrauka</item>
+    </array>
+
+
+</resources>
