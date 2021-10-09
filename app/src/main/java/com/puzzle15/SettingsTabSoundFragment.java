@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -18,6 +19,7 @@ public class SettingsTabSoundFragment extends Fragment {
 
     SwitchCompat swchEffects, swchMusic;
     SeekBar sbEffects, sbMusic;
+    CheckBox chkBoxSong1, chkBoxSong2;
 
     @Nullable
     @Override
@@ -90,6 +92,18 @@ public class SettingsTabSoundFragment extends Fragment {
             }
         });
 
+        chkBoxSong1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Toast.makeText(getActivity(), "Song 1 checked: " + compoundButton.isChecked(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        chkBoxSong2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Toast.makeText(getActivity(), "Song 2 checked: " + b, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initViews(@NonNull View view){
@@ -97,6 +111,9 @@ public class SettingsTabSoundFragment extends Fragment {
         swchMusic = view.findViewById(R.id.swchMusic);
         sbEffects = view.findViewById(R.id.seekBarEffects);
         sbMusic = view.findViewById(R.id.seekBarMusic);
+        chkBoxSong1 = view.findViewById(R.id.chkBoxSong1);
+        chkBoxSong2 = view.findViewById(R.id.chkBoxSong2);
+
     }
 
 }

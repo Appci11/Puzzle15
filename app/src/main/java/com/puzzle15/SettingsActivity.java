@@ -1,5 +1,6 @@
 package com.puzzle15;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,9 +17,9 @@ public class SettingsActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setTheme(R.style.Custom1);    bet neveiks fragmentams
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 

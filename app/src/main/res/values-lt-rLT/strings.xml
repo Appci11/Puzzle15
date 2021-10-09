@@ -3,7 +3,6 @@
 
     <string name="about">Apie</string>
 
-
     <array name="languages">
         <item>Anglų</item>
         <item>Lietuvių</item>
@@ -14,6 +13,5 @@
         <item>Raidės</item>
         <item>Nuotrauka</item>
     </array>
-
 
 </resources>

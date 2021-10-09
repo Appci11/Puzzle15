@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 public class SettingsTabGameFragment extends Fragment {
 
-    private Spinner spnLanguage, spnCardStyle;
+    private Spinner spnLanguage, spnCardStyle, spnAnimationSpeed;
 
 
     @Nullable
@@ -30,6 +30,7 @@ public class SettingsTabGameFragment extends Fragment {
 
         spnLanguage = view.findViewById(R.id.spnCountry);
         spnCardStyle = view.findViewById(R.id.spnCardStyle);
+        spnAnimationSpeed = view.findViewById(R.id.spnAnimationSpeed);
 
         spnLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -53,7 +54,17 @@ public class SettingsTabGameFragment extends Fragment {
 
             }
         });
+        spnAnimationSpeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getActivity(), spnAnimationSpeed.getSelectedItem().toString() + " Selected", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
     }
 }

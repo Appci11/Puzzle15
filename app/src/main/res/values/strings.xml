@@ -15,4 +15,22 @@
         <item>Picture</item>
     </array>
 
+    <array name="animationSpeed">
+        <item>Default</item>
+        <item>Slow</item>
+        <item>Fast</item>
+    </array>
+
+    <array name="colorTheme">
+        <item>Default</item>
+        <item>Theme 1</item>
+    </array>
+
+    <array name="cardBackground">
+        <item>smth1</item>
+        <item>smth2</item>
+    </array>
+
+
+
 </resources>
