@@ -17,12 +17,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Console;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class RandomGameActivity extends MainActivity {
-
-
     private TextView timerText;
 
     Timer timer;
@@ -31,7 +30,6 @@ public class RandomGameActivity extends MainActivity {
 
     private ConstraintLayout gameTileHolder;
     private ImageView[][] gameTiles = new ImageView[4][4];
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,22 +62,57 @@ public class RandomGameActivity extends MainActivity {
         });
 
         //Game board setup
+        resetBoard();
+        do{
+            resetBoard();
+            randomizeBoard();
 
-        for (int row = 0; row < gameTiles.length; row++){
-            for (int column = 0; column < gameTiles[0].length; column++){
-                int gameTileIndex = row * (gameTiles.length)+ column;
+        } while(!checkIfSolvable());
+
+    }
+
+    private void randomizeBoard(){
+        int i = (gameTiles.length  * gameTiles[0].length)-1;
+
+        Random rand = new Random();
+
+        while(i>0){
+            int r = rand.nextInt(i--);
+            moveTile((ImageView) gameTileHolder.getChildAt(i), (ImageView)gameTileHolder.getChildAt(r));
+        }
+    }
+
+    private boolean checkIfSolvable(){
+        int inversions = 0;
+
+        for (int i = 0; i < (gameTiles.length * gameTiles[0].length) - 1; i++){
+            for(int j = 0; j < i; j++){
+                if(Integer.valueOf(String.valueOf(gameTileHolder.getChildAt(i).getContentDescription()))<
+                        Integer.valueOf(String.valueOf(gameTileHolder.getChildAt(j).getContentDescription()))){
+                    inversions++;
+                }
+            }
+        }
+
+        return inversions % 2 == 0;
+    }
+
+    private void resetBoard() {
+        for (int row = 0; row < gameTiles.length; row++) {
+            for (int column = 0; column < gameTiles[0].length; column++) {
+                int gameTileIndex = row * (gameTiles.length) + column;
                 ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
 
-                if(gameTileIndex == 15) { //quick hack for last piece
+                if (gameTileIndex == 15) { //quick hack for last piece
                     int resourceIndex = getDrawableIdFromGameTileIndex(0);
                     gameTile.setImageResource(resourceIndex);
                     gameTile.setContentDescription(String.valueOf(0));
 
                     int finalRow = row;
                     int finalColumn = column;
-                    gameTile.setOnClickListener(new View.OnClickListener(){
+                    gameTile.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onClick(View view){
+                        public void onClick(View view) {
                             checkBoardChanges(gameTile, finalRow, finalColumn);
                         }
                     });
@@ -91,16 +124,14 @@ public class RandomGameActivity extends MainActivity {
 
                 int resourceIndex = getDrawableIdFromGameTileIndex(gameTileIndex + 1);
 
-
-
                 gameTile.setImageResource(resourceIndex);
                 gameTile.setContentDescription(String.valueOf(gameTileIndex + 1));
 
                 int finalRow = row;
                 int finalColumn = column;
-                gameTile.setOnClickListener(new View.OnClickListener(){
+                gameTile.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view){
+                    public void onClick(View view) {
                         checkBoardChanges(gameTile, finalRow, finalColumn);
                     }
                 });
@@ -108,19 +139,11 @@ public class RandomGameActivity extends MainActivity {
                 gameTiles[row][column] = gameTile;
             }
         }
-
-
     }
 
     private void checkBoardChanges(ImageView gameTile, int row, int column){
 
-        Log.v("Image Clicked", String.valueOf(gameTile.getContentDescription()) + " " + row + " " + column);
-
-        //check around the tile for empty spots
-
-        //check left gameTiles[row][column-1].getContentDescription()=="0"
-
-        //Log.v("Image Clicked", String.valueOf(String.valueOf(gameTiles[row][column-1].getContentDescription())));
+        //Log.v("Image Clicked", String.valueOf(gameTile.getContentDescription()) + " " + row + " " + column);
 
         if(column != 0 && String.valueOf(gameTiles[row][column-1].getContentDescription()).equals("0")){
             //left is empty! Move to the left
