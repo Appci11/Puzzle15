@@ -18,7 +18,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">#FF2E47</item>
         <item name="colorPrimaryVariant">#B30000</item>
-        <item name="colorOnPrimary">@color/gray</item>
+        <item name="colorOnPrimary">#000000</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#6FDA03</item>
         <item name="colorSecondaryVariant">#548701</item>

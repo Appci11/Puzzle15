@@ -19,7 +19,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //setTheme(R.style.Custom1);    bet neveiks fragmentams
+        //setTheme(R.style.Custom1);    //bet neveiks fragmentams
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 

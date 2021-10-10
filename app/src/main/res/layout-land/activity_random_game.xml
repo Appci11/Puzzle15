@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:padding="10dp"
+    tools:context=".RandomGameActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameTilesHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageButton
+            android:id="@+id/imgView11"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/nr1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgView12"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/nr15"
+            app:layout_constraintStart_toEndOf="@+id/imgView11"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgView13"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/nr8"
+            app:layout_constraintStart_toEndOf="@+id/imgView12"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgView14"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/nr4"
+            app:layout_constraintStart_toEndOf="@+id/imgView13"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgView21"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView11" />
+
+        <ImageButton
+            android:id="@+id/imgView22"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr6"
+            app:layout_constraintStart_toEndOf="@+id/imgView21"
+            app:layout_constraintTop_toBottomOf="@+id/imgView12" />
+
+        <ImageButton
+            android:id="@+id/imgView23"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr7"
+            app:layout_constraintStart_toEndOf="@+id/imgView22"
+            app:layout_constraintTop_toBottomOf="@+id/imgView13" />
+
+        <ImageButton
+            android:id="@+id/imgView24"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr3"
+            app:layout_constraintStart_toEndOf="@+id/imgView23"
+            app:layout_constraintTop_toBottomOf="@+id/imgView14" />
+
+        <ImageButton
+            android:id="@+id/imgView31"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView21" />
+
+        <ImageButton
+            android:id="@+id/imgView32"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr10"
+            app:layout_constraintStart_toEndOf="@+id/imgView31"
+            app:layout_constraintTop_toBottomOf="@+id/imgView22" />
+
+        <ImageButton
+            android:id="@+id/imgView33"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr5"
+            app:layout_constraintStart_toEndOf="@+id/imgView32"
+            app:layout_constraintTop_toBottomOf="@+id/imgView23" />
+
+        <ImageButton
+            android:id="@+id/imgView34"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr12"
+            app:layout_constraintStart_toEndOf="@+id/imgView33"
+            app:layout_constraintTop_toBottomOf="@+id/imgView24" />
+
+        <ImageButton
+            android:id="@+id/imgView41"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgView31" />
+
+        <ImageButton
+            android:id="@+id/imgView42"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr14"
+            app:layout_constraintStart_toEndOf="@+id/imgView41"
+            app:layout_constraintTop_toBottomOf="@+id/imgView32" />
+
+        <ImageButton
+            android:id="@+id/imgView43"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/nr2"
+            app:layout_constraintStart_toEndOf="@+id/imgView42"
+            app:layout_constraintTop_toBottomOf="@+id/imgView33" />
+
+        <ImageButton
+            android:id="@+id/imgView44"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/empty"
+            app:layout_constraintStart_toEndOf="@+id/imgView43"
+            app:layout_constraintTop_toBottomOf="@+id/imgView34" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/random_game_main_menu_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Main Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gameTilesHolder"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_countdown"
+        android:layout_width="54dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="00:00"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ResetBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/random_game_main_menu_button"
+        app:layout_constraintEnd_toStartOf="@+id/gameTilesHolder"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
