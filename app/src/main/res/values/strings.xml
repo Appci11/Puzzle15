@@ -20,9 +20,6 @@
     <string name="music">Music</string>
 
 
-
-
-
     <array name="languages">
         <item>English</item>
         <item>Lithuanian</item>
@@ -49,7 +46,6 @@
         <item>smth1</item>
         <item>smth2</item>
     </array>
-
 
 
 </resources>

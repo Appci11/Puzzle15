@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Puzzle15">
         <activity
+            android:name=".WinScreen"
+            android:exported="true" />
+        <activity
             android:name=".CustomGameActivity"
             android:exported="true" />
         <activity

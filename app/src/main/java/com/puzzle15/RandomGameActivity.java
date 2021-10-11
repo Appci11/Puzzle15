@@ -28,6 +28,20 @@ public class RandomGameActivity extends MainActivity {
     TimerTask timerTask;
     Double time = 0.0;
 
+    Double score;
+
+
+
+    int turnCount;
+    TextView txtTurnCount;
+    TextView txtWinScreen;
+    String message;
+
+
+
+
+
+
     private ConstraintLayout gameTileHolder;
     private ImageView[][] gameTiles = new ImageView[4][4];
 
@@ -42,8 +56,28 @@ public class RandomGameActivity extends MainActivity {
         gameTileHolder = findViewById(R.id.gameTilesHolder);
 
         timerText = findViewById(R.id.textView_countdown);
+
+
+
+
+
+        txtTurnCount = findViewById(R.id.txtTurnCount);
+        txtWinScreen = findViewById(R.id.txtWinScreen);
+
+
         timer = new Timer();
         startTimer();
+
+
+
+
+        turnCount = 0;
+        message = "";
+
+
+
+
+
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +99,7 @@ public class RandomGameActivity extends MainActivity {
         resetBoard();
         do{
             resetBoard();
-            randomizeBoard();
+            //randomizeBoard();
 
         } while(!checkIfSolvable());
 
@@ -166,6 +200,22 @@ public class RandomGameActivity extends MainActivity {
         String description = String.valueOf(receivingTile.getContentDescription());
 
         receivingTile.setContentDescription(movingTile.getContentDescription());
+
+
+
+
+
+
+        turnCount++;
+        System.out.println(turnCount);
+        txtTurnCount.setText(String.valueOf(turnCount));
+
+
+
+
+
+
+
         receivingTile.setImageResource(getDrawableIdFromGameTileIndex(Integer.parseInt(String.valueOf(movingTile.getContentDescription()))));
 
         movingTile.setContentDescription(description);
@@ -180,6 +230,22 @@ public class RandomGameActivity extends MainActivity {
                 if(gameTileIndex == 15) {
                     //win
                     Log.v("Win", "Win");
+
+
+                    score = (1000 - time) * (100 - turnCount);
+                    message = message + "";
+                    txtWinScreen.setText(String.valueOf(score));
+                    txtWinScreen.setVisibility((View.VISIBLE));
+
+                    SessionScore.score = score;
+                    SessionScore.time = time;
+                    SessionScore.turns = turnCount;
+
+                    //button1.setVisibility(View.INVISIBLE);
+                    Intent intent = new Intent(RandomGameActivity.this, WinScreen.class);
+                    startActivity(intent);
+
+
                 }
                 if(gameTiles[row][column].getContentDescription() != String.valueOf(gameTileIndex + 1)){
                     return;
