@@ -210,12 +210,6 @@ public class RandomGameActivity extends MainActivity {
         System.out.println(turnCount);
         txtTurnCount.setText(String.valueOf(turnCount));
 
-
-
-
-
-
-
         receivingTile.setImageResource(getDrawableIdFromGameTileIndex(Integer.parseInt(String.valueOf(movingTile.getContentDescription()))));
 
         movingTile.setContentDescription(description);
