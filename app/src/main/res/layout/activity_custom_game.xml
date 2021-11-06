@@ -7,6 +7,41 @@
     android:padding="10dp"
     tools:context=".CustomGameActivity">
 
+    <Spinner
+        android:id="@+id/imageSpinner"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/image"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardStyletxt" />
+
+    <TextView
+        android:id="@+id/cardStyletxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:text="@string/image"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCustomGame" />
+
+    <TextView
+        android:id="@+id/CardStyletxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:text="@string/card_style"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCustomGame" />
+
     <TextView
         android:id="@+id/txtCustomGame"
         android:layout_width="wrap_content"
@@ -37,6 +72,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
+        android:text="20"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,10 +82,11 @@
         android:id="@+id/btnStartCustomGame"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="176dp"
         android:text="@string/start"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtStepsToFinish" />
 
@@ -57,12 +94,24 @@
         android:id="@+id/btnStartAIPlay"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/watch_ai"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStartCustomGame" />
+
+    <Spinner
+        android:id="@+id/CardStyleSpinner"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/cardStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CardStyletxt" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

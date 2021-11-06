@@ -10,6 +10,7 @@
     <string name="game">Game</string>
     <string name="graphics">Graphics</string>
     <string name="sound">Sound</string>
+    <string name="image">Image</string>
 
     <string name="steps_to_finish">Steps to finish:</string>
     <string name="custom_game">Custom game</string>
@@ -60,6 +61,11 @@
     <array name="cardBackground">
         <item>Picture</item>
         <item>White color</item>
+    </array>
+
+    <array name="image">
+        <item>First</item>
+        <item>Second</item>
     </array>
 
 

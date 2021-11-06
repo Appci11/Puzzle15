@@ -5,6 +5,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -159,6 +161,8 @@ public class RandomGameActivity extends MainActivity {
                 int resourceIndex = getDrawableIdFromGameTileIndex(gameTileIndex + 1);
 
                 gameTile.setImageResource(resourceIndex);
+                gameTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                gameTile.setPadding(0,0,0,0);
                 gameTile.setContentDescription(String.valueOf(gameTileIndex + 1));
 
                 int finalRow = row;
@@ -235,6 +239,7 @@ public class RandomGameActivity extends MainActivity {
                     SessionScore.time = time;
                     SessionScore.turns = turnCount;
 
+
                     //button1.setVisibility(View.INVISIBLE);
                     Intent intent = new Intent(RandomGameActivity.this, WinScreen.class);
                     startActivity(intent);
@@ -271,25 +276,81 @@ public class RandomGameActivity extends MainActivity {
 
 
     private int getDrawableIdFromGameTileIndex(int index){
-        switch (index){
-            case(1): return R.drawable.nr1;
-            case(2): return R.drawable.nr2;
-            case(3): return R.drawable.nr3;
-            case(4): return R.drawable.nr4;
-            case(5): return R.drawable.nr5;
-            case(6): return R.drawable.nr6;
-            case(7): return R.drawable.nr7;
-            case(8): return R.drawable.nr8;
-            case(9): return R.drawable.nr9;
-            case(10): return R.drawable.nr10;
-            case(11): return R.drawable.nr11;
-            case(12): return R.drawable.nr12;
-            case(13): return R.drawable.nr13;
-            case(14): return R.drawable.nr14;
-            case(15): return R.drawable.nr15;
-            case(0): return R.drawable.empty;
+
+        int graphicType = 0;
+        int imageId = 0;
+
+        Context context = getApplicationContext();
+        Resources resources = context.getResources();
+
+/*
+        String pathName = getFilesDir() + "/xxx.jpg";
+        Drawable d = Drawable.createFromPath(pathName);
+*/
+
+        if(index == 0) return R.drawable.empty;
+
+        int style = (int)CustomGameParams.cardStyle;
+        int image = (int)CustomGameParams.pictureId;
+
+        String name;
+
+
+        switch (style) {
+            case (0):
+            case (1):
+                name = "";
+                break;
+            case (2):
+                name = "_" + (image + 1);
+                break;
             default:
-                throw new IllegalStateException("Unexpected value: " + index);
+                name = "";
+
         }
+
+        final int resourceId = resources.getIdentifier("nr" + index + name, "drawable",
+                context.getPackageName());
+        return resourceId;
+        //return resources.getDrawable(resourceId);
+/*
+        if(graphicType == 0) {
+            switch (index) {
+                case (1):
+                    return R.drawable.nr1;
+                case (2):
+                    return R.drawable.nr2;
+                case (3):
+                    return R.drawable.nr3;
+                case (4):
+                    return R.drawable.nr4;
+                case (5):
+                    return R.drawable.nr5;
+                case (6):
+                    return R.drawable.nr6;
+                case (7):
+                    return R.drawable.nr7;
+                case (8):
+                    return R.drawable.nr8;
+                case (9):
+                    return R.drawable.nr9;
+                case (10):
+                    return R.drawable.nr10;
+                case (11):
+                    return R.drawable.nr11;
+                case (12):
+                    return R.drawable.nr12;
+                case (13):
+                    return R.drawable.nr13;
+                case (14):
+                    return R.drawable.nr14;
+                case (15):
+                    return R.drawable.nr15;
+                case (0):
+                    return R.drawable.empty;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + index);
+            }
+        }*/
     }
 }

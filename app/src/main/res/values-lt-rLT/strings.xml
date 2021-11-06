@@ -11,6 +11,8 @@
     <string name="game">Žaidimas</string>
     <string name="graphics">Grafika</string>
     <string name="sound">Garsas</string>
+    <string name="image">Paveikslėlis</string>
+
 
     <string name="steps_to_finish">Žingsniai iki pabaigos:</string>
     <string name="custom_game">Pasirinktinis žaidimas</string>
@@ -56,6 +58,11 @@
     <array name="cardBackground">
         <item>Paveikslėlis</item>
         <item>Balta spalva</item>
+    </array>
+
+    <array name="image">
+        <item>Pirma</item>
+        <item>Antra</item>
     </array>
 
 </resources>
