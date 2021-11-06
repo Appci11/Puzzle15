@@ -38,8 +38,8 @@
     </array>
 
     <array name="colorTheme">
-        <item>Default</item>
-        <item>Theme 1</item>
+        <item>Dark</item>
+        <item>Light</item>
     </array>
 
     <array name="cardBackground">

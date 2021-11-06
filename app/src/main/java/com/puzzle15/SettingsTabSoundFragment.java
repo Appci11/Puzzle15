@@ -1,5 +1,11 @@
 package com.puzzle15;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +24,21 @@ import androidx.fragment.app.Fragment;
 public class SettingsTabSoundFragment extends Fragment {
 
     SwitchCompat swchEffects, swchMusic;
-    SeekBar sbEffects, sbMusic;
     CheckBox chkBoxSong1, chkBoxSong2;
+
+    private boolean musicswitchOnOff,effectswitchOnOff;
+
+
+    public static final String SHARED_PREFS = "musicSettings";
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View frag = inflater.inflate(R.layout.fragment_settings_tab_sound, container, false);
+
+
         return frag;
     }
 
@@ -32,6 +46,10 @@ public class SettingsTabSoundFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
+        loadData();
+        updateViews();
+
+
 
         swchEffects.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -42,7 +60,7 @@ public class SettingsTabSoundFragment extends Fragment {
                 else {
                     Toast.makeText(getActivity(),"Effect Sound: OFF",Toast.LENGTH_SHORT).show();
                 }
-
+                saveData();
             }
 
         });
@@ -55,41 +73,11 @@ public class SettingsTabSoundFragment extends Fragment {
                 else {
                     Toast.makeText(getActivity(),"Music Sound: OFF",Toast.LENGTH_SHORT).show();
                 }
+                saveData();
+                ((MainActivity)getActivity()).recreate();
 
             }
 
-        });
-        sbEffects.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Toast.makeText(getActivity(),"Effects Bar at: " + sbEffects.getProgress() ,Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-        sbMusic.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Toast.makeText(getActivity(),"Music Bar at: " + sbMusic.getProgress() ,Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
         });
 
         chkBoxSong1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -104,16 +92,44 @@ public class SettingsTabSoundFragment extends Fragment {
                 Toast.makeText(getActivity(), "Song 2 checked: " + b, Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
     }
 
     private void initViews(@NonNull View view){
         swchEffects = view.findViewById(R.id.swchEffects);
         swchMusic = view.findViewById(R.id.swchMusic);
-        sbEffects = view.findViewById(R.id.seekBarEffects);
-        sbMusic = view.findViewById(R.id.seekBarMusic);
+
         chkBoxSong1 = view.findViewById(R.id.chkBoxSong1);
         chkBoxSong2 = view.findViewById(R.id.chkBoxSong2);
 
+    }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("swchMusic", swchMusic.isChecked());
+        editor.putBoolean("swchEffect", swchEffects.isChecked());
+
+        editor.apply();
+
+        //Toast.makeText(this.getActivity(), "Data saved", Toast.LENGTH_SHORT).show();
+    }
+
+    public void loadData() {
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+
+        musicswitchOnOff = sharedPreferences.getBoolean("swchMusic", true);
+
+        effectswitchOnOff = sharedPreferences.getBoolean("swchEffect", true);
+
+    }
+
+    public void updateViews() {
+        swchMusic.setChecked(musicswitchOnOff);
+        swchEffects.setChecked(effectswitchOnOff);
     }
 
 }
