@@ -43,6 +43,7 @@ public class SettingsTabGameFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 //Toast.makeText(getActivity(), spnLanguage.getSelectedItem().toString() + " Selected", Toast.LENGTH_SHORT).show();
                 saveData();
+                //((MainActivity)getActivity()).recreate();
             }
 
             @Override
@@ -85,6 +86,7 @@ public class SettingsTabGameFragment extends Fragment {
         editor.putInt("animation", spnAnimationSpeed.getSelectedItemPosition());
 
         editor.apply();
+
 
     }
 

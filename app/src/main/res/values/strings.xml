@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">puzzle15</string>
 
@@ -18,17 +19,22 @@
     <string name="volume">Volume</string>
     <string name="effects">Effects</string>
     <string name="music">Music</string>
+    <string name="animation">Animation Speed</string>
+    <string name="CardBackground">Card Background</string>
+    <string name="ColorTheme">Color Theme</string>
+    <string name="Sound">Sound</string>
+    <string name="SongsPlaylist">Songs Playlist</string>
+    <string name="Effects">Effects</string>
+    <string name="Music">Music</string>
+    <string name="Reset">Reset</string>
+    <string name="MainMenu">Main Menu</string>
+
+
 
 
     <array name="languages">
         <item>English</item>
         <item>Lithuanian</item>
-    </array>
-
-    <array name="cardStyle">
-        <item>Numbers</item>
-        <item>Letters</item>
-        <item>Picture</item>
     </array>
 
     <array name="animationSpeed">
@@ -37,14 +43,23 @@
         <item>Fast</item>
     </array>
 
+    <array name="cardStyle">
+        <item>Numbers</item>
+        <item>Letters</item>
+        <item>Picture</item>
+    </array>
+
+
+
+
     <array name="colorTheme">
         <item>Dark</item>
         <item>Light</item>
     </array>
 
     <array name="cardBackground">
-        <item>smth1</item>
-        <item>smth2</item>
+        <item>Picture</item>
+        <item>White color</item>
     </array>
 
 

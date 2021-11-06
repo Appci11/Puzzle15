@@ -74,7 +74,7 @@ public class SettingsTabSoundFragment extends Fragment {
                     Toast.makeText(getActivity(),"Music Sound: OFF",Toast.LENGTH_SHORT).show();
                 }
                 saveData();
-                ((MainActivity)getActivity()).recreate();
+
 
             }
 

@@ -20,8 +20,15 @@
     <string name="volume">Garsumas</string>
     <string name="effects">Efektai</string>
     <string name="music">Muzika</string>
-
-
+    <string name="animation">Animacijos greitis</string>
+    <string name="CardBackground">Fonas</string>
+    <string name="ColorTheme">Tema</string>
+    <string name="Sound">Garsas</string>
+    <string name="SongsPlaylist">Dainų sąrašas</string>
+    <string name="Effects">Efektai</string>
+    <string name="Music">Muzika</string>
+    <string name="Reset">Iš naujo</string>
+    <string name="MainMenu">Pagrindinis meniu</string>
 
 
     <array name="languages">
@@ -33,6 +40,22 @@
         <item>Skaičiai</item>
         <item>Raidės</item>
         <item>Nuotrauka</item>
+    </array>
+
+    <array name="animationSpeed">
+        <item>Numatytas</item>
+        <item>Greitas</item>
+        <item>Lėtas</item>
+    </array>
+
+    <array name="colorTheme">
+        <item>Tamsi</item>
+        <item>Šviesi</item>
+    </array>
+
+    <array name="cardBackground">
+        <item>Paveikslėlis</item>
+        <item>Balta spalva</item>
     </array>
 
 </resources>
