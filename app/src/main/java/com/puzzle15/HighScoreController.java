@@ -71,7 +71,7 @@ public class HighScoreController extends AppCompatActivity {
                     highScores.remove(highScores.size()-1);
                     SaveHighScore(highScores);
                 }
-            }
+            } // if this ends, the score is lower than all of the serialized ones, so doing nothing
         }
     }
 
