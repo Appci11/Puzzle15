@@ -48,7 +48,7 @@ public class WinScreen extends AppCompatActivity {
 
         //Save HighScore;
         HighScoreController controller = new HighScoreController();
-        controller.UpdateHighScoreList(new HighScoreData(score));
+        controller.UpdateHighScoreList(new HighScoreData(score), getFilesDir().getAbsolutePath());
 
     }
 }

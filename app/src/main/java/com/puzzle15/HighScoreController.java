@@ -14,12 +14,12 @@ import java.util.Collections;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HighScoreController extends AppCompatActivity {
+public class HighScoreController{
     static String filename = "highScores.dat";
 
-    public ArrayList<HighScoreData> LoadHighScore(){
+    public ArrayList<HighScoreData> LoadHighScore(String filesDir){
 
-        File file = new File(getFilesDir(), filename);
+        File file = new File(filesDir, filename);
 
         try {
             FileInputStream inputStream = new FileInputStream(file);
@@ -41,8 +41,8 @@ public class HighScoreController extends AppCompatActivity {
         }
     }
 
-    protected void SaveHighScore(ArrayList<HighScoreData> highScores){
-        File file = new File(getFilesDir(), filename);
+    protected void SaveHighScore(ArrayList<HighScoreData> highScores, String filesDir){
+        File file = new File(filesDir, filename);
 
         try {
             FileOutputStream outputStream = new FileOutputStream(file);
@@ -57,21 +57,21 @@ public class HighScoreController extends AppCompatActivity {
         }
     }
 
-    public void UpdateHighScoreList(HighScoreData highScore){
+    public void UpdateHighScoreList(HighScoreData highScore, String filesDir){
         //Get Top 5 scores
-        ArrayList<HighScoreData> highScores = LoadHighScore();
+        ArrayList<HighScoreData> highScores = LoadHighScore(filesDir);
         if(highScores.size() < 5){
             highScores.add(highScore);
             Collections.sort(highScores);
-            SaveHighScore(highScores);
+            SaveHighScore(highScores, filesDir);
         } else {
             for (HighScoreData data: highScores) {
                 if(data.score < highScore.score){
                     highScores.add(highScores.indexOf(data), highScore);
                     highScores.remove(highScores.size()-1);
-                    SaveHighScore(highScores);
+                    SaveHighScore(highScores, filesDir);
                 }
-            } // if this ends, the score is lower than all of the serialized ones, so doing nothing
+            } // if this ends, the score is lower than all of the serialized ones, so dong
         }
     }
 
