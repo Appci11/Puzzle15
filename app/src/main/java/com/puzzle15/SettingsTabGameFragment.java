@@ -94,11 +94,8 @@ public class SettingsTabGameFragment extends Fragment {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
 
         language = (int) sharedPreferences.getInt("language", 0);
-
         animationSpeed = (int) sharedPreferences.getInt("style", 0);
-
         cardStyle = (int) sharedPreferences.getInt("animation", 0);
-
     }
 
     public void updateViews() {

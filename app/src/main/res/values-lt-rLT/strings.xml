@@ -12,7 +12,10 @@
     <string name="graphics">Grafika</string>
     <string name="sound">Garsas</string>
     <string name="image">Paveikslėlis</string>
-
+    <string name="steps">Žingsniai:</string>
+    <string name="highscores">Rekordai</string>
+    <string name="date">Data</string>
+    <string name="result">Rezultatas</string>
 
     <string name="steps_to_finish">Žingsniai iki pabaigos:</string>
     <string name="custom_game">Pasirinktinis žaidimas</string>

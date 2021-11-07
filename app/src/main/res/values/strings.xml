@@ -11,6 +11,13 @@
     <string name="graphics">Graphics</string>
     <string name="sound">Sound</string>
     <string name="image">Image</string>
+    <string name="steps">Steps:</string>
+    <string name="highscores">Highscores</string>
+    <string name="date">Date</string>
+    <string name="result">Result</string>
+
+
+
 
     <string name="steps_to_finish">Steps to finish:</string>
     <string name="custom_game">Custom game</string>
@@ -31,8 +38,6 @@
     <string name="MainMenu">Main Menu</string>
 
 
-
-
     <array name="languages">
         <item>English</item>
         <item>Lithuanian</item>
@@ -51,8 +56,6 @@
     </array>
 
 
-
-
     <array name="colorTheme">
         <item>Dark</item>
         <item>Light</item>
@@ -67,6 +70,7 @@
         <item>First</item>
         <item>Second</item>
     </array>
+    <string name="title_activity_highscore">HighscoreActivity</string>
 
 
 </resources>

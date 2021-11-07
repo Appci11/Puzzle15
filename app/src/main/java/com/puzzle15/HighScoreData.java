@@ -12,7 +12,7 @@ public class HighScoreData implements Serializable, Comparable { //data structur
     public HighScoreData(double _score){
         score = _score;
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
 
         dateTime = formatter.format(date);

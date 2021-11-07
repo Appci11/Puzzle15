@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout;
+    private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout, btnHighScoreView;
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
 
     private int language;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCustomGame.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
         btnAbout.setOnClickListener(this);
+        btnHighScoreView.setOnClickListener(this);
 
 // pvz jei kitur reiketu
  /*       btnRandomGame.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSettings = findViewById(R.id.btnSettings);
         btnAbout = findViewById(R.id.btnAbout);
         imgLogo = findViewById(R.id.imgLogo);
+        btnHighScoreView = findViewById(R.id.btnHighScoreView);
     }
 
     @Override
@@ -74,6 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAbout:
                 intent = new Intent(MainActivity.this, AboutActivity.class);
+                break;
+            case R.id.btnHighScoreView:
+                intent = new Intent(MainActivity.this, HighScoreViewActivity.class);
                 break;
             default:
                 Toast.makeText(this, "Kriu", Toast.LENGTH_SHORT).show();
