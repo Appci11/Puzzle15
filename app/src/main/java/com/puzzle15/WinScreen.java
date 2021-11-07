@@ -2,11 +2,18 @@ package com.puzzle15;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Struct;
+import java.util.ArrayList;
+
 
 public class WinScreen extends AppCompatActivity {
 
@@ -21,12 +28,9 @@ public class WinScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win_screen);
 
-
-
         score = SessionScore.score;
 
         txtWinnScreen = findViewById(R.id.txtWinnScreen);
-
         txtWinnScreen.setText("Game Won!!!\n" + "Score: " + String.valueOf(score) +
                 "\nTurns taken: " + SessionScore.turns + "\nTime taken: " + SessionScore.time + " seconds");
 
@@ -40,6 +44,11 @@ public class WinScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //Save HighScore;
+        HighScoreController controller = new HighScoreController();
+        controller.UpdateHighScoreList(new HighScoreData(score));
 
     }
 }
