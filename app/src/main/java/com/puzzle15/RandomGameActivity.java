@@ -29,20 +29,12 @@ public class RandomGameActivity extends MainActivity {
     Timer timer;
     TimerTask timerTask;
     Double time = 0.0;
-
     Double score;
-
-
 
     int turnCount;
     TextView txtTurnCount;
     TextView txtWinScreen;
     String message;
-
-
-
-
-
 
     private ConstraintLayout gameTileHolder;
     private ImageView[][] gameTiles = new ImageView[4][4];
@@ -56,30 +48,16 @@ public class RandomGameActivity extends MainActivity {
         Button resetGame = findViewById(R.id.ResetBtn);
 
         gameTileHolder = findViewById(R.id.gameTilesHolder);
-
         timerText = findViewById(R.id.textView_countdown);
-
-
-
-
 
         txtTurnCount = findViewById(R.id.txtTurnCount);
         txtWinScreen = findViewById(R.id.txtWinScreen);
 
-
         timer = new Timer();
         startTimer();
 
-
-
-
         turnCount = 0;
         message = "";
-
-
-
-
-
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,10 +79,75 @@ public class RandomGameActivity extends MainActivity {
         resetBoard();
         do{
             resetBoard();
-            //randomizeBoard();
-
+            if(CustomGameParams.turnsToFinish == -1) {
+                //randomizeBoard();
+            }
         } while(!checkIfSolvable());
 
+        if(CustomGameParams.turnsToFinish > 0){
+            Log.v("Unsolving board", "unsolve board " + CustomGameParams.turnsToFinish);
+            unsolveBoard(CustomGameParams.turnsToFinish);
+        }
+    }
+    private void unsolveBoard(int unsolveSteps) {
+        for (int step = 0; step < unsolveSteps; step++) {
+            boolean stepDone = false;
+            Log.v("Unsolving board", "unsolve board " + step);
+            for (int row = 0; row < gameTiles.length; row++) {
+                for (int column = 0; column < gameTiles[0].length; column++) {
+                    int gameTileIndex = row * (gameTiles.length) + column;
+                    ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
+
+                    if (gameTile.getContentDescription() == String.valueOf(0)) {
+                        selectRandomTileAroundEmptyAndMove(gameTile, row, column);
+                        stepDone = true;
+                        break;
+                    }
+                }
+                if(stepDone){
+                    break;
+                }
+            }
+        }
+    }
+
+    private void selectRandomTileAroundEmptyAndMove(ImageView gameTile, int row, int column){
+        Random random = new Random();
+        boolean goodMoveFound = false;
+        do {
+            int direction = random.nextInt(4);
+
+            switch(direction){
+                case 0: //left
+                    if (column != 0) {
+                        //left has something! Move it to the empty spot
+                        moveTile(gameTiles[row][column - 1], gameTile);
+                        goodMoveFound = true;
+                    }
+                    break;
+                case 1: //right
+                    if (column != gameTiles[0].length - 1) {
+                        moveTile(gameTiles[row][column + 1], gameTile);
+                        goodMoveFound = true;
+                    }
+                    break;
+                case 2: //up
+                    if (row != 0) {
+                        moveTile(gameTiles[row - 1][column], gameTile);
+                        goodMoveFound = true;
+                    }
+                    break;
+                case 3: //down
+                    if (row != gameTiles.length - 1) {
+                        moveTile(gameTiles[row + 1][column], gameTile);
+                        goodMoveFound = true;
+                    }
+                    break;
+
+                default: //wtf
+                    break;
+            }
+        } while(!goodMoveFound);
     }
 
     private void randomizeBoard(){
@@ -117,6 +160,7 @@ public class RandomGameActivity extends MainActivity {
             moveTile((ImageView) gameTileHolder.getChildAt(i), (ImageView)gameTileHolder.getChildAt(r));
         }
     }
+
 
     private boolean checkIfSolvable(){
         int inversions = 0;
@@ -205,12 +249,12 @@ public class RandomGameActivity extends MainActivity {
 
         receivingTile.setContentDescription(movingTile.getContentDescription());
 
-
-
-
-
-
         turnCount++;
+        if(CustomGameParams.turnsToFinish != -1){
+            if(turnCount>CustomGameParams.turnsToFinish){
+                //FAIL GAME
+            }
+        }
         System.out.println(turnCount);
         txtTurnCount.setText(String.valueOf(turnCount));
 

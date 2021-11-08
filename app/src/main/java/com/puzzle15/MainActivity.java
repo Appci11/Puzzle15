@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = null;
         switch (view.getId()) {
             case R.id.btnRandomGame:
+                CustomGameParams.turnsToFinish = -1;
                 intent = new Intent(MainActivity.this, RandomGameActivity.class);
                 break;
             case R.id.btnCustomGame:
