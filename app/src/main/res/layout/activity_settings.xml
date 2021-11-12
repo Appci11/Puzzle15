@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="?attr/backgroundColor">
 
     <TextView
         android:id="@+id/txtSettings"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtSettings"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="32dp"
+        android:background="?attr/backgroundColor"/>
 
 
     <androidx.viewpager2.widget.ViewPager2

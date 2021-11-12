@@ -6,7 +6,8 @@
     android:layout_height="1000dp"
     android:padding="10dp"
     tools:ignore="SpeakableTextPresentCheck"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="?attr/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

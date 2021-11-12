@@ -1,10 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Default application theme. -->
-    <style name="Theme.Puzzle15" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme_Indigo" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#3f51b5</item>
+        <item name="colorPrimaryVariant">#002984</item>
         <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="backgroundColor">#E6E6E6</item>
         <!-- Secondary brand color. Not really using it -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -14,15 +15,31 @@
         <!-- Customize your theme here. -->
     </style>
     <!-- Custom application theme. -->
-    <style name="Custom1" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme_Green" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#FF2E47</item>
-        <item name="colorPrimaryVariant">#B30000</item>
-        <item name="colorOnPrimary">#000000</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#6FDA03</item>
-        <item name="colorSecondaryVariant">#548701</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorPrimary">#2e7d32</item>
+        <item name="colorPrimaryVariant">#005005</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="backgroundColor">#F0F0F0</item>
+        <!-- Secondary brand color. Not really using it -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">#000000</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <!-- Custom application theme. -->
+    <style name="Theme_Red" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#c62828</item>
+        <item name="colorPrimaryVariant">#8e0000</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="backgroundColor">#F0F0F0</item>
+        <!-- Secondary brand color. Not really using it -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">#000000</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
