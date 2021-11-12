@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, RandomGameActivity.class);
                 startActivity(intent);
             }
-        });*/
+});*/
     }
 
     private void initViews() {

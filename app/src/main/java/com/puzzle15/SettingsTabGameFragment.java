@@ -2,6 +2,7 @@ package com.puzzle15;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,7 +44,6 @@ public class SettingsTabGameFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 //Toast.makeText(getActivity(), spnLanguage.getSelectedItem().toString() + " Selected", Toast.LENGTH_SHORT).show();
                 saveData();
-                //((MainActivity)getActivity()).recreate();
             }
 
             @Override

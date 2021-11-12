@@ -1,7 +1,10 @@
 package com.puzzle15;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +19,7 @@ public class SettingsActivity extends MainActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
+    Button btnApply, btnToMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,12 @@ public class SettingsActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        btnApply = findViewById(R.id.btnSettingsApply);
+        btnToMenu = findViewById(R.id.btnSettingsToMenu);
+
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
+
 
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.game)), 0);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.graphics)), 1);
@@ -59,6 +67,22 @@ public class SettingsActivity extends MainActivity {
             }
         });
         viewPager.setCurrentItem(0);
+
+        btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
