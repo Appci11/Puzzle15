@@ -227,7 +227,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameTilesHolder"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
 

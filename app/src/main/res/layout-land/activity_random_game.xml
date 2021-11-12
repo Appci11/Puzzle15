@@ -204,5 +204,28 @@
         app:layout_constraintEnd_toStartOf="@+id/gameTilesHolder"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/txtTurnCount"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/textView_countdown"
+        app:layout_constraintStart_toStartOf="@+id/textView_countdown"
+        app:layout_constraintTop_toBottomOf="@+id/textView_countdown" />
+
+    <TextView
+        android:id="@+id/txtWinScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Smth adsfasdf \n asdf ads\n"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameTilesHolder"
+        android:visibility="gone"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
