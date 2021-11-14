@@ -60,6 +60,7 @@
     <array name="colorTheme">
         <item>Green</item>
         <item>Red</item>
+        <item>Blue</item>
     </array>
 
     <array name="cardBackground">

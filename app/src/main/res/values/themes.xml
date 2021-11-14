@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Default application theme. -->
-    <style name="Theme_Indigo" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme_Blue" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#3f51b5</item>
         <item name="colorPrimaryVariant">#002984</item>
