@@ -15,7 +15,7 @@ import java.sql.Struct;
 import java.util.ArrayList;
 
 
-public class WinScreen extends AppCompatActivity {
+public class WinScreen extends MainActivity {
 
     TextView txtWinnScreen;
 
