@@ -61,8 +61,10 @@
     </array>
 
     <array name="cardBackground">
-        <item>Paveikslėlis</item>
         <item>Balta spalva</item>
+        <item>Raudona spalva</item>
+        <item>Mėlyna spalva</item>
+        <item>Žalia spalva</item>
     </array>
 
     <array name="image">

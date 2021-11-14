@@ -64,8 +64,10 @@
     </array>
 
     <array name="cardBackground">
-        <item>Picture</item>
         <item>White color</item>
+        <item>Red color</item>
+        <item>Blue color</item>
+        <item>Green color</item>
     </array>
 
     <array name="image">
