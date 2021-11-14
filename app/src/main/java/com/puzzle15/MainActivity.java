@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.Locale;
 
@@ -24,16 +25,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout, btnHighScoreView;
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
 
-    private int language;
+    private int language, theme;
     public static final String SHARED_PREFS = "gameSettings";
+    public static final String SHARED_PREFS1 = "graphicsSettings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //super.getTheme().applyStyle(R.style.Custom1, true);
-
         super.onCreate(savedInstanceState);
         loadData();
-        setLang();
         initViews();
 
         btnRandomGame.setOnClickListener(this);
@@ -104,7 +104,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void loadData() {
         SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences sharedPreferences1 = this.getSharedPreferences(SHARED_PREFS1, MODE_PRIVATE);
         language = (int) sharedPreferences.getInt("language", 0);
+        theme = (int) sharedPreferences1.getInt("theme", 0);
+        setLang();
+        setTheme();
     }
     public void setLang() {
 
@@ -118,5 +122,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setAppLocale("lt");
         }
         setContentView(R.layout.activity_main);
+    }
+
+    public void setTheme(){
+        if (theme == 0)
+        {
+            setTheme(R.style.Theme_Puzzle15);
+        }
+        else if (theme == 1)
+        {
+            setTheme(R.style.Theme_Red);
+        }
+
     }
 }

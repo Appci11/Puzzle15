@@ -36,6 +36,7 @@
     <string name="Music">Music</string>
     <string name="Reset">Reset</string>
     <string name="MainMenu">Main Menu</string>
+    <string name="Apply">Apply</string>
 
 
     <array name="languages">
@@ -57,8 +58,8 @@
 
 
     <array name="colorTheme">
-        <item>Dark</item>
-        <item>Light</item>
+        <item>Green</item>
+        <item>Red</item>
     </array>
 
     <array name="cardBackground">

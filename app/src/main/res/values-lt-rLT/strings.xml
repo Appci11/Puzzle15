@@ -34,6 +34,7 @@
     <string name="Music">Muzika</string>
     <string name="Reset">Iš naujo</string>
     <string name="MainMenu">Pagrindinis meniu</string>
+    <string name="Apply">Patvirtinti</string>
 
 
     <array name="languages">
@@ -54,8 +55,8 @@
     </array>
 
     <array name="colorTheme">
-        <item>Tamsi</item>
-        <item>Šviesi</item>
+        <item>Žalia</item>
+        <item>Raudona</item>
     </array>
 
     <array name="cardBackground">
