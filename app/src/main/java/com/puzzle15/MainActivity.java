@@ -125,17 +125,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void setTheme(){
-        if (theme == 0)
-        {
-            super.getTheme().applyStyle(R.style.Theme_Green, true);
-        }
-        else if (theme == 1)
-        {
-            super.getTheme().applyStyle(R.style.Theme_Red, true);
-        }
-        else if (theme == 2)
-        {
-            super.getTheme().applyStyle(R.style.Theme_Blue, true);
+        switch(theme){
+            case 0:
+                super.getTheme().applyStyle(R.style.Theme_Green, true);
+                break;
+            case 1:
+                super.getTheme().applyStyle(R.style.Theme_Red, true);
+                break;
+            case 2:
+                super.getTheme().applyStyle(R.style.Theme_Blue, true);
+                break;
+            default:
+                Toast.makeText(this, "Theme not changed.", Toast.LENGTH_SHORT).show();
         }
 
     }
