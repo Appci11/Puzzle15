@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class CustomGameActivity extends AppCompatActivity {
+public class CustomGameActivity extends MainActivity {
 
     private Button btnStartCustomGame, btnStartAIPlay;
     private EditText edtTxtStepsToFinish;

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout, btnHighScoreView;
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
 
-    private int language, theme;
+    public int language, theme;
     public static final String SHARED_PREFS = "gameSettings";
     public static final String SHARED_PREFS1 = "graphicsSettings";
 
@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sharedPreferences1 = this.getSharedPreferences(SHARED_PREFS1, MODE_PRIVATE);
         language = (int) sharedPreferences.getInt("language", 0);
         theme = (int) sharedPreferences1.getInt("theme", 0);
-        setLang();
         setTheme();
+        setLang();
     }
     public void setLang() {
 
@@ -127,11 +127,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setTheme(){
         if (theme == 0)
         {
-            setTheme(R.style.Theme_Puzzle15);
+            super.getTheme().applyStyle(R.style.Theme_Puzzle15, true);
         }
         else if (theme == 1)
         {
-            setTheme(R.style.Theme_Red);
+            super.getTheme().applyStyle(R.style.Theme_Red, true);
         }
 
     }
