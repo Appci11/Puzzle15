@@ -2,10 +2,13 @@ package com.puzzle15;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 
 public class HighScoreViewActivity extends MainActivity {
 
+    Button btnToMenu;
 
     private TableLayout tableHighScore;
 
@@ -77,12 +81,21 @@ public class HighScoreViewActivity extends MainActivity {
 
 
             tableHighScore.addView(tr);
+
+            btnToMenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(HighScoreViewActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 
     }
 
     private void initViews() {
         tableHighScore = findViewById(R.id.tableHighScore);
+        btnToMenu = findViewById(R.id.btnHighScoreToMenu);
 
     }
 }

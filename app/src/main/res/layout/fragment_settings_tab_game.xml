@@ -37,7 +37,8 @@
             android:layout_marginTop="16dp"
             android:text="@string/card_style"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtAnimationSpeed" />
+            app:layout_constraintTop_toBottomOf="@+id/txtAnimationSpeed"
+            android:visibility="gone"/>
 
         <Spinner
             android:id="@+id/spnCardStyle"
@@ -47,7 +48,8 @@
             android:entries="@array/cardStyle"
             app:layout_constraintBottom_toBottomOf="@+id/txtCardStyle"
             app:layout_constraintStart_toEndOf="@+id/txtCardStyle"
-            app:layout_constraintTop_toTopOf="@+id/txtCardStyle" />
+            app:layout_constraintTop_toTopOf="@+id/txtCardStyle"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/txtAnimationSpeed"

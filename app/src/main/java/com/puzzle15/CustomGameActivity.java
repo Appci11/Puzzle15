@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class CustomGameActivity extends MainActivity {
 
-    private Button btnStartCustomGame, btnStartAIPlay;
+    private Button btnStartCustomGame, btnStartAIPlay, btnToMenu;
     private EditText edtTxtStepsToFinish;
     private Spinner CardStyleSpinner;
     private Spinner imageSpinner;
@@ -72,6 +72,14 @@ public class CustomGameActivity extends MainActivity {
                 return;
             }
         });
+
+        btnToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CustomGameActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViews() {
@@ -81,6 +89,7 @@ public class CustomGameActivity extends MainActivity {
         CardStyleSpinner = findViewById(R.id.CardStyleSpinner);
         cardStyletxt = findViewById(R.id.cardStyletxt);
         imageSpinner = findViewById(R.id.imageSpinner);
+        btnToMenu = findViewById(R.id.btnCustomGameToMenu);
 
     }
 }
