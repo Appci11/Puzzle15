@@ -1,26 +1,19 @@
 package com.puzzle15;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.os.CountDownTimer;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Console;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -86,98 +79,102 @@ public class RandomGameActivity extends MainActivity {
 
         //Game board setup
         resetBoard();
-        do{
+        do {
             resetBoard();
-            if(CustomGameParams.turnsToFinish == -1) {
+            if (CustomGameParams.turnsToFinish == -1) {
                 //randomizeBoard();
             }
-        } while(!checkIfSolvable());
+        } while (!checkIfSolvable());
 
-        if(CustomGameParams.turnsToFinish > 0){
+        if (CustomGameParams.turnsToFinish > 0) {
             Log.v("Unsolving board", "unsolve board " + CustomGameParams.turnsToFinish);
             unsolveBoard(CustomGameParams.turnsToFinish);
         }
     }
-    private void unsolveBoard(int unsolveSteps) {
-        for (int step = 0; step < unsolveSteps; step++) {
-            boolean stepDone = false;
-            Log.v("Unsolving board", "unsolve board " + step);
-            for (int row = 0; row < gameTiles.length; row++) {
-                for (int column = 0; column < gameTiles[0].length; column++) {
-                    int gameTileIndex = row * (gameTiles.length) + column;
-                    ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
 
-                    if (gameTile.getContentDescription() == String.valueOf(0)) {
-                        selectRandomTileAroundEmptyAndMove(gameTile, row, column);
-                        stepDone = true;
+    private void unsolveBoard(int unsolveSteps) {
+        try {
+            for (int step = 0; step < unsolveSteps; step++) {
+                boolean stepDone = false;
+                Log.v("Unsolving board", "unsolve board " + step);
+                for (int row = 0; row < gameTiles.length; row++) {
+                    for (int column = 0; column < gameTiles[0].length; column++) {
+                        int gameTileIndex = row * (gameTiles.length) + column;
+                        ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
+
+                        if (gameTile.getContentDescription() == String.valueOf(0)) {
+                            selectRandomTileAroundEmptyAndMove(gameTile, row, column);
+                            stepDone = true;
+                            break;
+                        }
+                    }
+                    if (stepDone) {
                         break;
                     }
                 }
-                if(stepDone){
-                    break;
-                }
             }
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
-    private void selectRandomTileAroundEmptyAndMove(ImageView gameTile, int row, int column){
+    private void selectRandomTileAroundEmptyAndMove(ImageView gameTile, int row, int column) {
         Random random = new Random();
         boolean goodMoveFound = false;
         do {
             int direction = random.nextInt(4);
+                switch (direction) {
+                    case 0: //left
+                        if (column != 0) {
+                            //left has something! Move it to the empty spot
+                            moveTile(gameTiles[row][column - 1], gameTile);
+                            goodMoveFound = true;
+                        }
+                        break;
+                    case 1: //right
+                        if (column != gameTiles[0].length - 1) {
+                            moveTile(gameTiles[row][column + 1], gameTile);
+                            goodMoveFound = true;
+                        }
+                        break;
+                    case 2: //up
+                        if (row != 0) {
+                            moveTile(gameTiles[row - 1][column], gameTile);
+                            goodMoveFound = true;
+                        }
+                        break;
+                    case 3: //down
+                        if (row != gameTiles.length - 1) {
+                            moveTile(gameTiles[row + 1][column], gameTile);
+                            goodMoveFound = true;
+                        }
+                        break;
 
-            switch(direction){
-                case 0: //left
-                    if (column != 0) {
-                        //left has something! Move it to the empty spot
-                        moveTile(gameTiles[row][column - 1], gameTile);
-                        goodMoveFound = true;
-                    }
-                    break;
-                case 1: //right
-                    if (column != gameTiles[0].length - 1) {
-                        moveTile(gameTiles[row][column + 1], gameTile);
-                        goodMoveFound = true;
-                    }
-                    break;
-                case 2: //up
-                    if (row != 0) {
-                        moveTile(gameTiles[row - 1][column], gameTile);
-                        goodMoveFound = true;
-                    }
-                    break;
-                case 3: //down
-                    if (row != gameTiles.length - 1) {
-                        moveTile(gameTiles[row + 1][column], gameTile);
-                        goodMoveFound = true;
-                    }
-                    break;
-
-                default: //wtf
-                    break;
-            }
-        } while(!goodMoveFound);
+                    default: //wtf
+                        break;
+                }
+        } while (!goodMoveFound);
     }
 
-    private void randomizeBoard(){
-        int i = (gameTiles.length  * gameTiles[0].length)-1;
+    private void randomizeBoard() {
+        int i = (gameTiles.length * gameTiles[0].length) - 1;
 
         Random rand = new Random();
 
-        while(i>0){
+        while (i > 0) {
             int r = rand.nextInt(i--);
-            moveTile((ImageView) gameTileHolder.getChildAt(i), (ImageView)gameTileHolder.getChildAt(r));
+            moveTile((ImageView) gameTileHolder.getChildAt(i), (ImageView) gameTileHolder.getChildAt(r));
         }
     }
 
 
-    private boolean checkIfSolvable(){
+    private boolean checkIfSolvable() {
         int inversions = 0;
 
-        for (int i = 0; i < (gameTiles.length * gameTiles[0].length) - 1; i++){
-            for(int j = 0; j < i; j++){
-                if(Integer.valueOf(String.valueOf(gameTileHolder.getChildAt(i).getContentDescription()))<
-                        Integer.valueOf(String.valueOf(gameTileHolder.getChildAt(j).getContentDescription()))){
+        for (int i = 0; i < (gameTiles.length * gameTiles[0].length) - 1; i++) {
+            for (int j = 0; j < i; j++) {
+                if (Integer.valueOf(String.valueOf(gameTileHolder.getChildAt(i).getContentDescription())) <
+                        Integer.valueOf(String.valueOf(gameTileHolder.getChildAt(j).getContentDescription()))) {
                     inversions++;
                 }
             }
@@ -215,7 +212,7 @@ public class RandomGameActivity extends MainActivity {
 
                 gameTile.setImageResource(resourceIndex);
                 gameTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                gameTile.setPadding(0,0,0,0);
+                gameTile.setPadding(0, 0, 0, 0);
                 gameTile.setContentDescription(String.valueOf(gameTileIndex + 1));
 
                 int finalRow = row;
@@ -232,42 +229,42 @@ public class RandomGameActivity extends MainActivity {
         }
     }
 
-    private void checkBoardChanges(ImageView gameTile, int row, int column){
+    private void checkBoardChanges(ImageView gameTile, int row, int column) {
 
         //Log.v("Image Clicked", String.valueOf(gameTile.getContentDescription()) + " " + row + " " + column);
 
-        if(column != 0 && String.valueOf(gameTiles[row][column-1].getContentDescription()).equals("0")){
+        if (column != 0 && String.valueOf(gameTiles[row][column - 1].getContentDescription()).equals("0")) {
             //left is empty! Move to the left
-            moveTile(gameTile, gameTiles[row][column-1]);
+            moveTile(gameTile, gameTiles[row][column - 1]);
         } //check right
-        else if (column != gameTiles[0].length - 1 && String.valueOf(gameTiles[row][column+1].getContentDescription()).equals("0")){
-            moveTile(gameTile, gameTiles[row][column+1]);
+        else if (column != gameTiles[0].length - 1 && String.valueOf(gameTiles[row][column + 1].getContentDescription()).equals("0")) {
+            moveTile(gameTile, gameTiles[row][column + 1]);
         } //check up
-        else if (row != 0 && String.valueOf(gameTiles[row-1][column].getContentDescription()).equals("0")){
-            moveTile(gameTile, gameTiles[row-1][column]);
+        else if (row != 0 && String.valueOf(gameTiles[row - 1][column].getContentDescription()).equals("0")) {
+            moveTile(gameTile, gameTiles[row - 1][column]);
         } //check down
-        else if (row != gameTiles.length - 1 && String.valueOf(gameTiles[row+1][column].getContentDescription()).equals("0")){
-            moveTile(gameTile, gameTiles[row+1][column]);
+        else if (row != gameTiles.length - 1 && String.valueOf(gameTiles[row + 1][column].getContentDescription()).equals("0")) {
+            moveTile(gameTile, gameTiles[row + 1][column]);
         }
 
         checkWinConditions();
 
         int val = 0;
 
-        ObjectAnimator a  = ObjectAnimator.ofFloat(progressBar, "scaleX", turnCount);
+        ObjectAnimator a = ObjectAnimator.ofFloat(progressBar, "scaleX", turnCount);
         a.setDuration(100);
 
         a.start();
     }
 
-    private void moveTile(ImageView movingTile, ImageView receivingTile){
+    private void moveTile(ImageView movingTile, ImageView receivingTile) {
         String description = String.valueOf(receivingTile.getContentDescription());
 
         receivingTile.setContentDescription(movingTile.getContentDescription());
 
         turnCount++;
-        if(CustomGameParams.turnsToFinish != -1){
-            if(turnCount>CustomGameParams.turnsToFinish){
+        if (CustomGameParams.turnsToFinish != -1) {
+            if (turnCount > CustomGameParams.turnsToFinish) {
                 //FAIL GAME
             }
         }
@@ -281,11 +278,11 @@ public class RandomGameActivity extends MainActivity {
 
     }
 
-    private void checkWinConditions(){
+    private void checkWinConditions() {
         for (int row = 0; row < gameTiles.length; row++) {
             for (int column = 0; column < gameTiles[0].length; column++) {
-                int gameTileIndex = row * (gameTiles.length)+ column;
-                if(gameTileIndex == 15) {
+                int gameTileIndex = row * (gameTiles.length) + column;
+                if (gameTileIndex == 15) {
                     //win
                     Log.v("Win", "Win");
 
@@ -306,7 +303,7 @@ public class RandomGameActivity extends MainActivity {
 
 
                 }
-                if(gameTiles[row][column].getContentDescription() != String.valueOf(gameTileIndex + 1)){
+                if (gameTiles[row][column].getContentDescription() != String.valueOf(gameTileIndex + 1)) {
                     return;
                 }
             }
@@ -335,7 +332,7 @@ public class RandomGameActivity extends MainActivity {
     }
 
 
-    private int getDrawableIdFromGameTileIndex(int index){
+    private int getDrawableIdFromGameTileIndex(int index) {
 
         int graphicType = 0;
         int imageId = 0;
@@ -348,10 +345,10 @@ public class RandomGameActivity extends MainActivity {
         Drawable d = Drawable.createFromPath(pathName);
 */
 
-        if(index == 0) return R.drawable.empty;
+        if (index == 0) return R.drawable.empty;
 
-        int style = (int)CustomGameParams.cardStyle;
-        int image = (int)CustomGameParams.pictureId;
+        int style = (int) CustomGameParams.cardStyle;
+        int image = (int) CustomGameParams.pictureId;
 
         String name;
 
@@ -372,45 +369,5 @@ public class RandomGameActivity extends MainActivity {
         final int resourceId = resources.getIdentifier("nr" + index + name, "drawable",
                 context.getPackageName());
         return resourceId;
-        //return resources.getDrawable(resourceId);
-/*
-        if(graphicType == 0) {
-            switch (index) {
-                case (1):
-                    return R.drawable.nr1;
-                case (2):
-                    return R.drawable.nr2;
-                case (3):
-                    return R.drawable.nr3;
-                case (4):
-                    return R.drawable.nr4;
-                case (5):
-                    return R.drawable.nr5;
-                case (6):
-                    return R.drawable.nr6;
-                case (7):
-                    return R.drawable.nr7;
-                case (8):
-                    return R.drawable.nr8;
-                case (9):
-                    return R.drawable.nr9;
-                case (10):
-                    return R.drawable.nr10;
-                case (11):
-                    return R.drawable.nr11;
-                case (12):
-                    return R.drawable.nr12;
-                case (13):
-                    return R.drawable.nr13;
-                case (14):
-                    return R.drawable.nr14;
-                case (15):
-                    return R.drawable.nr15;
-                case (0):
-                    return R.drawable.empty;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + index);
-            }
-        }*/
     }
 }

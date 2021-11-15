@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/backgroundColor">
@@ -48,6 +49,25 @@
             app:layout_constraintBottom_toBottomOf="@+id/txtColorTheme"
             app:layout_constraintStart_toEndOf="@+id/txtColorTheme"
             app:layout_constraintTop_toTopOf="@+id/txtColorTheme" />
+
+        <TextView
+            android:id="@+id/txtChosePicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="Chose picture from library"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCardBackground" />
+
+        <Button
+            android:id="@+id/btnSettingsChosePicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtChosePicture"
+            android:text="Chose"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
