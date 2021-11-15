@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -90,6 +91,8 @@ public class CustomGameActivity extends MainActivity {
         cardStyletxt = findViewById(R.id.cardStyletxt);
         imageSpinner = findViewById(R.id.imageSpinner);
         btnToMenu = findViewById(R.id.btnCustomGameToMenu);
+
+
 
     }
 }

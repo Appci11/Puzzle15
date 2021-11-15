@@ -3,6 +3,8 @@ package com.puzzle15;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -36,6 +38,9 @@ public class RandomGameActivity extends MainActivity {
     TextView txtWinScreen;
     String message;
 
+    private ImageView progressBar; //test
+
+
     private ConstraintLayout gameTileHolder;
     private ImageView[][] gameTiles = new ImageView[4][4];
 
@@ -52,6 +57,10 @@ public class RandomGameActivity extends MainActivity {
 
         txtTurnCount = findViewById(R.id.txtTurnCount);
         txtWinScreen = findViewById(R.id.txtWinScreen);
+
+
+        progressBar = findViewById(R.id.progressBar);//test
+
 
         timer = new Timer();
         startTimer();
@@ -242,6 +251,13 @@ public class RandomGameActivity extends MainActivity {
         }
 
         checkWinConditions();
+
+        int val = 0;
+
+        ObjectAnimator a  = ObjectAnimator.ofFloat(progressBar, "scaleX", turnCount);
+        a.setDuration(100);
+
+        a.start();
     }
 
     private void moveTile(ImageView movingTile, ImageView receivingTile){

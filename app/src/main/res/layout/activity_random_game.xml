@@ -221,5 +221,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameTilesHolder" />
 
+    <ImageView
+        android:id="@+id/progressBar"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameTilesHolder"
+        app:srcCompat="@drawable/card_background_blue" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

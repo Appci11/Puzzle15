@@ -40,7 +40,7 @@
         <entry key="app/src/main/res/layout/activity_high_score_view.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_highscore.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/activity_random_game.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/activity_random_game.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_settings_backup.xml" value="0.19270833333333334" />
