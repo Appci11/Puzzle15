@@ -71,7 +71,7 @@ public class SettingsTabGraphicsFragment extends Fragment {
         btnChosePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ChoseLibraryPicture.class);
+                Intent intent = new Intent(getActivity(), SettingsChoseLibraryPicture.class);
                 startActivity(intent);
             }
         });
