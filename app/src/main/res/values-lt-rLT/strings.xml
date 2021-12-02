@@ -68,8 +68,9 @@
     </array>
 
     <array name="image">
-        <item>Pirma</item>
-        <item>Antra</item>
+        <item>Pirmas</item>
+        <item>Antras</item>
+        <item>Pasirinktinis</item>
     </array>
 
 </resources>

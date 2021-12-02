@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.io.File;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,6 +36,9 @@ public class RandomGameActivity extends MainActivity {
     TextView txtTurnCount;
     TextView txtWinScreen;
     String message;
+
+    int style = (int) CustomGameParams.cardStyle;
+    int image = (int) CustomGameParams.pictureId;
 
     private ImageView progressBar; //test
 
@@ -58,7 +63,6 @@ public class RandomGameActivity extends MainActivity {
 
         progressBar = findViewById(R.id.progressBar);//test
         player = MediaPlayer.create(this,R.raw.tile_sound);
-
 
         timer = new Timer();
         startTimer();
@@ -95,6 +99,7 @@ public class RandomGameActivity extends MainActivity {
             Log.v("Unsolving board", "unsolve board " + CustomGameParams.turnsToFinish);
             unsolveBoard(CustomGameParams.turnsToFinish);
         }
+
     }
 
     private void unsolveBoard(int unsolveSteps) {
@@ -195,8 +200,9 @@ public class RandomGameActivity extends MainActivity {
                 ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
 
                 if (gameTileIndex == 15) { //quick hack for last piece
-                    int resourceIndex = getDrawableIdFromGameTileIndex(0);
-                    gameTile.setImageResource(resourceIndex);
+                    Drawable resource = getDrawableFromGameTileIndex(0);
+                    gameTile.setImageDrawable(resource);
+                    gameTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                     gameTile.setContentDescription(String.valueOf(0));
 
                     int finalRow = row;
@@ -213,9 +219,8 @@ public class RandomGameActivity extends MainActivity {
                     return;
                 }
 
-                int resourceIndex = getDrawableIdFromGameTileIndex(gameTileIndex + 1);
-
-                gameTile.setImageResource(resourceIndex);
+                Drawable resource = getDrawableFromGameTileIndex(gameTileIndex + 1);
+                gameTile.setImageDrawable(resource);
                 gameTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 gameTile.setPadding(0, 0, 0, 0);
                 gameTile.setContentDescription(String.valueOf(gameTileIndex + 1));
@@ -275,11 +280,13 @@ public class RandomGameActivity extends MainActivity {
         }
         System.out.println(turnCount);
         txtTurnCount.setText(String.valueOf(turnCount));
-
-        receivingTile.setImageResource(getDrawableIdFromGameTileIndex(Integer.parseInt(String.valueOf(movingTile.getContentDescription()))));
+        receivingTile.setImageDrawable(getDrawableFromGameTileIndex(Integer.parseInt(String.valueOf(movingTile.getContentDescription()))));
+        receivingTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
         movingTile.setContentDescription(description);
-        movingTile.setImageResource(getDrawableIdFromGameTileIndex(Integer.parseInt(description)));
+        movingTile.setImageDrawable(getDrawableFromGameTileIndex(Integer.parseInt(description)));
+        movingTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
 
     }
 
@@ -337,7 +344,7 @@ public class RandomGameActivity extends MainActivity {
     }
 
 
-    private int getDrawableIdFromGameTileIndex(int index) {
+    private Drawable getDrawableFromGameTileIndex(int index) {
 
         int graphicType = 0;
         int imageId = 0;
@@ -350,30 +357,48 @@ public class RandomGameActivity extends MainActivity {
         Drawable d = Drawable.createFromPath(pathName);
 */
 
-        if (index == 0) return R.drawable.empty;
-
-        int style = (int) CustomGameParams.cardStyle;
-        int image = (int) CustomGameParams.pictureId;
+        if (index == 0) return resources.getDrawable(R.drawable.empty, getTheme());
 
         String name;
+        String path = getFilesDir().getAbsolutePath() + "/SavedImage/pic" + index + ".jpg";
+        File file = new File(path);
 
+        if(image != 2 ) {
+            switch (style) {
+                case (0):
+                    name = "";
+                    break;
+                case (1):
+                    name = "_4";
+                    break;
+                case (2):
+                    name = "_" + (image + 1);
+                    break;
+                default:
+                    name = "";
 
-        switch (style) {
-            case (0):
-            case (1):
-                name = "";
-                break;
-            case (2):
-                name = "_" + (image + 1);
-                break;
-            default:
-                name = "";
+            }
 
+            final int resourceId = resources.getIdentifier("nr" + index + name, "drawable",
+                    context.getPackageName());
+            return resources.getDrawable(resourceId, getTheme());
+        }
+        else {
+            if(file.exists()) {
+                System.out.println("Vieta: " + path);
+                Drawable d = Drawable.createFromPath(path);
+
+                return d;
+            }
+            else {
+                final int resourceId = resources.getIdentifier("nr" + index, "drawable",
+                        context.getPackageName());
+                return resources.getDrawable(resourceId, getTheme());
+            }
+            //nu čia labai nesąmoningai padariau, reiktų kada sutvarkyt
+            //debar jei neegzistuoja įkeltas custom paveikslėlis tiesiog returnina skaičius
         }
 
-        final int resourceId = resources.getIdentifier("nr" + index + name, "drawable",
-                context.getPackageName());
-        return resourceId;
     }
 
     public void play()

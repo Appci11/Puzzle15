@@ -71,6 +71,7 @@
     <array name="image">
         <item>First</item>
         <item>Second</item>
+        <item>Custom</item>
     </array>
     <string name="title_activity_highscore">HighscoreActivity</string>
 

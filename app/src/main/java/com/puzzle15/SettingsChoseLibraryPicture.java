@@ -83,13 +83,13 @@ public class SettingsChoseLibraryPicture extends  MainActivity {
                     }
                     else {
                         //permission already granted
-                        pickImageFromGalerry();
+                        pickImageFromGallery();
 
                     }
                 }
                 else{
                     //system os is less than marshmallow
-                    pickImageFromGalerry();
+                    pickImageFromGallery();
                 }
             }
         });
@@ -229,7 +229,7 @@ public class SettingsChoseLibraryPicture extends  MainActivity {
         }
     }
 
-    private void pickImageFromGalerry() {
+    private void pickImageFromGallery() {
         //intent to pick image
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
@@ -246,7 +246,7 @@ public class SettingsChoseLibraryPicture extends  MainActivity {
                 if(grantResults.length > 0 && grantResults[0] ==
                         PackageManager.PERMISSION_GRANTED) {
                     //permission was granted
-                    pickImageFromGalerry();
+                    pickImageFromGallery();
                 }
                 else{
                     //permission was not granted
