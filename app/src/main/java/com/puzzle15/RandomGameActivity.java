@@ -3,7 +3,9 @@ package com.puzzle15;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +22,9 @@ import java.util.TimerTask;
 
 public class RandomGameActivity extends MainActivity {
     private TextView timerText;
-
+    MediaPlayer player;
+    public static final String SHARED_PREFS = "musicSettings";
+    private boolean effectswitchOnOff;
     Timer timer;
     TimerTask timerTask;
     Double time = 0.0;
@@ -53,6 +57,7 @@ public class RandomGameActivity extends MainActivity {
 
 
         progressBar = findViewById(R.id.progressBar);//test
+        player = MediaPlayer.create(this,R.raw.tile_sound);
 
 
         timer = new Timer();
@@ -252,7 +257,7 @@ public class RandomGameActivity extends MainActivity {
         int val = 0;
 
         ObjectAnimator a = ObjectAnimator.ofFloat(progressBar, "scaleX", turnCount);
-        a.setDuration(100);
+        a.setDuration(1000);
 
         a.start();
     }
@@ -261,7 +266,7 @@ public class RandomGameActivity extends MainActivity {
         String description = String.valueOf(receivingTile.getContentDescription());
 
         receivingTile.setContentDescription(movingTile.getContentDescription());
-
+        play();
         turnCount++;
         if (CustomGameParams.turnsToFinish != -1) {
             if (turnCount > CustomGameParams.turnsToFinish) {
@@ -369,5 +374,14 @@ public class RandomGameActivity extends MainActivity {
         final int resourceId = resources.getIdentifier("nr" + index + name, "drawable",
                 context.getPackageName());
         return resourceId;
+    }
+
+    public void play()
+    {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        effectswitchOnOff = sharedPreferences.getBoolean("swchEffect", true);
+        if (effectswitchOnOff) {
+            player.start();
+        }
     }
 }

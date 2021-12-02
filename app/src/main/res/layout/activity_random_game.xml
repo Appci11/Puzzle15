@@ -28,7 +28,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:soundEffectsEnabled="false" />
 
         <ImageButton
             android:id="@+id/imgView12"
@@ -46,7 +47,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr8"
             app:layout_constraintStart_toEndOf="@+id/imgView12"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView14"
@@ -55,7 +57,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr4"
             app:layout_constraintStart_toEndOf="@+id/imgView13"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView21"
@@ -64,7 +67,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr11"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgView11" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView11"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView22"
@@ -73,7 +77,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr6"
             app:layout_constraintStart_toEndOf="@+id/imgView21"
-            app:layout_constraintTop_toBottomOf="@+id/imgView12" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView12"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView23"
@@ -82,7 +87,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr7"
             app:layout_constraintStart_toEndOf="@+id/imgView22"
-            app:layout_constraintTop_toBottomOf="@+id/imgView13" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView13"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView24"
@@ -91,7 +97,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr3"
             app:layout_constraintStart_toEndOf="@+id/imgView23"
-            app:layout_constraintTop_toBottomOf="@+id/imgView14" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView14"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView31"
@@ -100,7 +107,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr9"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgView21" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView21"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView32"
@@ -109,7 +117,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr10"
             app:layout_constraintStart_toEndOf="@+id/imgView31"
-            app:layout_constraintTop_toBottomOf="@+id/imgView22" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView22"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView33"
@@ -118,7 +127,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr5"
             app:layout_constraintStart_toEndOf="@+id/imgView32"
-            app:layout_constraintTop_toBottomOf="@+id/imgView23" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView23"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView34"
@@ -127,7 +137,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr12"
             app:layout_constraintStart_toEndOf="@+id/imgView33"
-            app:layout_constraintTop_toBottomOf="@+id/imgView24" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView24"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView41"
@@ -136,7 +147,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr13"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgView31" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView31"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView42"
@@ -145,7 +157,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr14"
             app:layout_constraintStart_toEndOf="@+id/imgView41"
-            app:layout_constraintTop_toBottomOf="@+id/imgView32" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView32"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView43"
@@ -154,7 +167,8 @@
             android:background="@drawable/card_background_white"
             android:src="@drawable/nr2"
             app:layout_constraintStart_toEndOf="@+id/imgView42"
-            app:layout_constraintTop_toBottomOf="@+id/imgView33" />
+            app:layout_constraintTop_toBottomOf="@+id/imgView33"
+            android:soundEffectsEnabled="false"/>
 
         <ImageButton
             android:id="@+id/imgView44"
@@ -223,7 +237,7 @@
 
     <ImageView
         android:id="@+id/progressBar"
-        android:layout_width="10dp"
+        android:layout_width="30dp"
         android:layout_height="10dp"
         android:layout_marginTop="68dp"
         app:layout_constraintStart_toStartOf="parent"
