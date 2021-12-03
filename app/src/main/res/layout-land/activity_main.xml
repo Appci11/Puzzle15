@@ -21,58 +21,79 @@
         android:id="@+id/btnRandomGame"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="40dp"
         android:width="200dp"
         android:text="@string/random_game"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/btnCustomGame"
-        app:layout_constraintEnd_toEndOf="@+id/btnCustomGame"
-        app:layout_constraintStart_toStartOf="@+id/btnCustomGame" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
     <Button
         android:id="@+id/btnCustomGame"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="16dp"
         android:width="200dp"
         android:text="@string/custom_game"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/btnHighScoreView"
-        app:layout_constraintEnd_toEndOf="@+id/btnHighScoreView"
-        app:layout_constraintStart_toStartOf="@+id/btnHighScoreView" />
+        app:layout_constraintEnd_toEndOf="@+id/btnRandomGame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRandomGame" />
 
     <Button
         android:id="@+id/btnSettings"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
         android:width="200dp"
         android:text="@string/settings"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/btnHighScoreView"
-        app:layout_constraintStart_toStartOf="@+id/btnHighScoreView"
-        app:layout_constraintTop_toBottomOf="@+id/btnHighScoreView" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnAccount"
+        app:layout_constraintStart_toEndOf="@+id/btnAccount"
+        app:layout_constraintTop_toTopOf="@+id/btnAccount" />
 
     <Button
         android:id="@+id/btnAbout"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
         android:width="200dp"
         android:text="@string/about"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/btnSettings"
-        app:layout_constraintStart_toStartOf="@+id/btnSettings"
-        app:layout_constraintTop_toBottomOf="@+id/btnSettings" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnSettings"
+        app:layout_constraintStart_toEndOf="@+id/btnSettings"
+        app:layout_constraintTop_toTopOf="@+id/btnSettings" />
 
     <Button
         android:id="@+id/btnHighScoreView"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:layout_marginStart="24dp"
         android:text="@string/highscores"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgLogo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnCustomGame"
+        app:layout_constraintStart_toEndOf="@+id/btnCustomGame"
+        app:layout_constraintTop_toTopOf="@+id/btnCustomGame" />
+
+    <Button
+        android:id="@+id/btnGameGuide"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:text="Game Guide"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRandomGame"
+        app:layout_constraintStart_toEndOf="@+id/btnRandomGame"
+        app:layout_constraintTop_toTopOf="@+id/btnRandomGame" />
+
+    <Button
+        android:id="@+id/btnAccount"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Account"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/btnCustomGame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCustomGame" />
 </androidx.constraintlayout.widget.ConstraintLayout>

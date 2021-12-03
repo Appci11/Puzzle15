@@ -23,7 +23,10 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout, btnHighScoreView;
+    private Button btnAccount, btnGameGuide;
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
+
+    private Button btnTest1;
 
     public int language, theme;
     public static final String SHARED_PREFS = "gameSettings";
@@ -41,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSettings.setOnClickListener(this);
         btnAbout.setOnClickListener(this);
         btnHighScoreView.setOnClickListener(this);
+        btnAccount.setOnClickListener(this);
+        btnGameGuide.setOnClickListener(this);
+
+        btnTest1.setOnClickListener(this);
 
 // pvz jei kitur reiketu
  /*       btnRandomGame.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAbout = findViewById(R.id.btnAbout);
         imgLogo = findViewById(R.id.imgLogo);
         btnHighScoreView = findViewById(R.id.btnHighScoreView);
+        btnAccount = findViewById(R.id.btnAccount);
+        btnGameGuide = findViewById(R.id.btnGameGuide);
+
+        btnTest1 = findViewById(R.id.btnToTest1);
     }
 
     @Override
@@ -80,6 +91,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnHighScoreView:
                 intent = new Intent(MainActivity.this, HighScoreViewActivity.class);
+                break;
+            case R.id.btnAccount:
+                intent = new Intent(MainActivity.this, AccountActivity.class);
+                break;
+            case R.id.btnGameGuide:
+                intent = new Intent(MainActivity.this, GameGuideActivity.class);
+                break;
+            case R.id.btnToTest1:
+                intent = new Intent(MainActivity.this, Test1Activity.class);
                 break;
             default:
                 Toast.makeText(this, "Kriu", Toast.LENGTH_SHORT).show();
