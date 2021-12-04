@@ -1,115 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountActivity"
+    tools:context=".Test1Activity"
     android:padding="10dp"
     android:background="?attr/backgroundColor">
 
-    <Button
-        android:id="@+id/btnTest1ToMenu"
+    <EditText
+        android:id="@+id/edittext_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/MainMenu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnTest1Btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Btn1"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName|textCapWords"
+        android:text="First Name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_person_save"
+    <EditText
+        android:id="@+id/edittext_surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName|textCapWords"
+        android:text="Last Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
+
+    <EditText
+        android:id="@+id/edittext_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Phone Number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_surname" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personAddressSave" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_phone" />
 
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:text="Delete"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="378dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_person_delete" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.066">
 
-    <Button
-        android:id="@+id/button_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:text="update"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_person_update" />
-
-    <EditText
-        android:id="@+id/personNameSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="name"
-        app:layout_constraintTop_toBottomOf="@+id/btnTest1Btn1"
-        tools:layout_editor_absoluteX="68dp" />
-
-    <EditText
-        android:id="@+id/personAddressSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="address"
-        app:layout_constraintTop_toBottomOf="@+id/personNameSave"
-        tools:layout_editor_absoluteX="77dp" />
-
-    <EditText
-        android:id="@+id/id_person_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="id"
-        app:layout_constraintTop_toBottomOf="@+id/button_person_save"
-        tools:layout_editor_absoluteX="78dp" />
-
-    <EditText
-        android:id="@+id/name_person_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="name"
-        app:layout_constraintTop_toBottomOf="@+id/id_person_update"
-        tools:layout_editor_absoluteX="68dp" />
-
-    <EditText
-        android:id="@+id/id_person_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="id"
-        app:layout_constraintTop_toBottomOf="@+id/button_update"
-        tools:layout_editor_absoluteX="80dp" />
-
-    <ListView
-        android:id="@+id/person_list"
-        android:layout_width="409dp"
-        android:layout_height="245dp"
-        app:layout_constraintTop_toBottomOf="@+id/button_delete"
-        tools:layout_editor_absoluteX="1dp" />
+        <TextView
+            android:id="@+id/txt_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,46 +1,84 @@
 package com.puzzle15;
 
-import android.content.Intent;
+import androidx.room.Room;
+
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-
-import androidx.room.Room;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
-import java.util.Observer;
 
 public class Test1Activity extends MainActivity {
 
-    Button btnToMenu;
-    Button btnBtn1;
+    private AppDatabase db;
+    private TextView personsListTextView;
+    private Button button;
+    private EditText firstNameEditText;
+    private EditText lastNameEditText;
+    private EditText phoneNumberEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1);
 
-        btnToMenu = findViewById(R.id.btnTest1ToMenu);
-        btnBtn1 = findViewById(R.id.btnTest1Btn1);
+        System.out.println("ATEITA IKI CIA");
+        //db = AppActivity.getDatabase();
+        //db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my_app_db").build();
+        //nerekomenduojama(dirbant tik ant main thread, galima viska pakabint ilgam laikui), bet galima ir taip
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my_app_db").allowMainThreadQueries().build();
 
+        personsListTextView = (TextView) findViewById(R.id.txt_list);
+        firstNameEditText = (EditText) findViewById(R.id.edittext_name);
+        lastNameEditText = (EditText) findViewById(R.id.edittext_surname);
+        phoneNumberEditText = (EditText) findViewById(R.id.edittext_phone);
+        button = (Button) findViewById(R.id.button);
 
-
-
-        btnToMenu.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Test1Activity.this, MainActivity.class);
-                startActivity(intent);
+                String name = firstNameEditText.getText().toString().trim();
+                String surname = lastNameEditText.getText().toString().trim();
+                String phoneNumber = phoneNumberEditText.getText().toString().trim();
+
+                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(surname)
+                        || TextUtils.isEmpty(phoneNumber)) {
+                    Toast.makeText(getApplicationContext(),
+                            "Name/Surname/Phone Number should not be empty",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Person person = new Person();
+                    person.setName(name);
+                    person.setSurname(surname);
+                    person.setPhoneNumber(phoneNumber);
+                    //reiketu sitaip
+                    //AsyncTask.execute(() -> db.personDAO().insert(person));
+                    db.personDAO().insert(person);
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Saved successfully",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    firstNameEditText.setText("");
+                    lastNameEditText.setText("");
+                    phoneNumberEditText.setText("");
+                    firstNameEditText.requestFocus();
+                    getDatabaseInList();
+                }
             }
         });
-
-        btnBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+    }
+    private void getDatabaseInList() {
+        personsListTextView.setText("");
+        List<Person> personList = db.personDAO().getAllPersons();
+        for (Person person : personList) {
+            personsListTextView.append(person.getName() + " " +
+                    person.getSurname() + " : " + person.getPhoneNumber());
+            personsListTextView.append("\n");
+        }
     }
 }

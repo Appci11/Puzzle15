@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme_Green">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Test1Activity"
             android:exported="true" />
         <activity
-            android:name=".Test1Activity"
+            android:name=".RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".GameGuideActivity"
