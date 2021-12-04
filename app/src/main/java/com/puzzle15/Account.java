@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Person {
+public class Account {
     @PrimaryKey(autoGenerate = true)
     private long id;
     @NonNull

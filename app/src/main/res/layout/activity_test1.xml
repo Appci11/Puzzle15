@@ -9,7 +9,7 @@
     android:background="?attr/backgroundColor">
 
     <EditText
-        android:id="@+id/edittext_name"
+        android:id="@+id/txtTest1Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edittext_surname"
+        android:id="@+id/txtTest1Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -32,10 +32,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_name" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTest1Name" />
 
     <EditText
-        android:id="@+id/edittext_phone"
+        android:id="@+id/txtTest1Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_surname" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTest1Email" />
 
     <Button
         android:id="@+id/button"
@@ -56,12 +56,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTest1Password" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="378dp"
-        android:layout_height="55dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
