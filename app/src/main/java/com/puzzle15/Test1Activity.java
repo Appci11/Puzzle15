@@ -16,7 +16,7 @@ public class Test1Activity extends MainActivity {
 
     private AppDatabase db;
     private TextView personsListTextView;
-    private Button button;
+    private Button button, button2;
     private EditText firstNameEditText;
     private EditText lastNameEditText;
     private EditText phoneNumberEditText;
@@ -36,6 +36,17 @@ public class Test1Activity extends MainActivity {
         lastNameEditText = (EditText) findViewById(R.id.txtTest1Email);
         phoneNumberEditText = (EditText) findViewById(R.id.txtTest1Password);
         button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
+
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int sk = db.accountDAO().exists("ccc");
+                System.out.println("AAAAAAA: " + sk);
+                getDatabaseInList();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,6 +13,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRandomGame, btnCustomGame, btnSettings, btnAbout, btnHighScoreView;
     private Button btnAccount, btnGameGuide;
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
+    private TextView txtLoggedInName;
 
     private Button btnTest1;
 
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         loadData();
         initViews();
+        if(LoginInfo.state == 0){
+            txtLoggedInName.setText(R.string.logged_out);
+        }
+        else{
+            txtLoggedInName.setText(R.string.logged_in_as);
+            txtLoggedInName.append(" " + LoginInfo.name);
+        }
 
         btnRandomGame.setOnClickListener(this);
         btnCustomGame.setOnClickListener(this);
@@ -68,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnHighScoreView = findViewById(R.id.btnHighScoreView);
         btnAccount = findViewById(R.id.btnAccount);
         btnGameGuide = findViewById(R.id.btnGameGuide);
+        txtLoggedInName = findViewById(R.id.txtLoginName);
 
         btnTest1 = findViewById(R.id.btnToTest1);
     }

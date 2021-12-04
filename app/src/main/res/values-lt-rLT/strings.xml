@@ -35,6 +35,8 @@
     <string name="Reset">Iš naujo</string>
     <string name="MainMenu">Pagrindinis meniu</string>
     <string name="Apply">Patvirtinti</string>
+    <string name="logged_in_as">Prisijungta kaip:</string>
+    <string name="logged_out">Neprisijungta.</string>
 
 
     <array name="languages">

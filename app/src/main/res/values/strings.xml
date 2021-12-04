@@ -35,6 +35,8 @@
     <string name="Reset">Reset</string>
     <string name="MainMenu">Main Menu</string>
     <string name="Apply">Apply</string>
+    <string name="logged_in_as">Logged in as:</string>
+    <string name="logged_out">Logged out.</string>
 
 
     <array name="languages">

@@ -23,10 +23,10 @@ public class RegisterActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
         //db = AppActivity.getDatabase();   //nenori veikt per static klase
         //db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my_app_db").build();
-        //nerekomenduojama(dirbant tik ant main thread, galima viska pakabint ilgam laikui), bet galima ir taip
+
+        //nerekomenduojama(dirbant tik ant main thread, galima viska pakabint ilgam laikui), bet nesudetingam appsui sueis
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my_app_db").allowMainThreadQueries().build();
 
         btnRegister = findViewById(R.id.btnRegisterRegister);
@@ -58,17 +58,17 @@ public class RegisterActivity extends MainActivity {
 //                        || TextUtils.isEmpty(email)
 //                        || TextUtils.isEmpty(pass)
 //                        || TextUtils.isEmpty(pass2)) {
-//                    Toast.makeText(getApplicationContext(),
-//                            "Please fill all fields",
-//                            Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
 //                if(pass.compareTo(pass2) != 0){
 //                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
+//                if(db.accountDAO().exists(name) == 1){  //if already exists
+//                    Toast.makeText(getApplicationContext(), "User already exists", Toast.LENGTH_SHORT).show();
+//                }
 
-                // plius, jei norim, dar patikrint ar nera jau uzregistruota tokiu vardu
 
                 Account account = new Account();
                 account.setName(name);
