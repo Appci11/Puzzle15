@@ -42,6 +42,7 @@ public class WinScreen extends MainActivity {
                 "\nTurns taken: " + SessionScore.turns + "\nTime taken: " + SessionScore.time + " seconds");
 
         if(LoginInfo.state == 1){
+
             AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class,
                     "my_app_db").allowMainThreadQueries().build();
             Date c = Calendar.getInstance().getTime();
@@ -73,16 +74,16 @@ public class WinScreen extends MainActivity {
         btnReplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
                 if(GameParams.gameMode.compareTo("Random") == 0) {
                     Toast.makeText(WinScreen.this, "Replay Random Game", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(WinScreen.this, RandomGameActivity.class);
+                    Intent intent = new Intent(WinScreen.this, RandomGameActivity.class);
+                    startActivity(intent);
                 }
                 else{
                     Toast.makeText(WinScreen.this, "Replay Custom Game", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(WinScreen.this, CustomGameActivity.class);
+                    Intent intent = new Intent(WinScreen.this, CustomGameActivity.class);
+                    startActivity(intent);
                 }
-                startActivity(intent);
             }
 
         });
