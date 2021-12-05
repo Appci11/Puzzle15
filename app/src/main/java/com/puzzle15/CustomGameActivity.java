@@ -46,7 +46,7 @@ public class CustomGameActivity extends MainActivity {
         btnStartAIPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CustomGameActivity.this, RandomGameActivity.class);
+                Intent intent = new Intent(CustomGameActivity.this, RandomGameActivityAI.class);
                 startActivity(intent);
             }
         });

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    android:padding="10dp"
+    tools:context=".RandomGameActivityAI">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameTilesHolderAI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageButton
+            android:id="@+id/imgViewAI11"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI12"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:src="@drawable/nr2"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI11"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI13"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr3"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI12"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI14"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr4"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI13"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI21"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI11" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI22"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr6"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI21"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI12" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI23"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr7"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI22"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI13" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI24"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr8"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI23"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI14" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI31"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI21" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI32"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr10"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI31"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI22" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI33"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr11"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI32"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI23" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI34"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr12"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI33"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI24" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI41"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI31" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI42"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr14"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI41"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI32" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI43"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/nr15"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI42"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI33" />
+
+        <ImageButton
+            android:id="@+id/imgViewAI44"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/card_background_white"
+            android:src="@drawable/empty"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAI43"
+            app:layout_constraintTop_toBottomOf="@+id/imgViewAI34" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/random_game_main_menu_buttonAI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/MainMenu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
