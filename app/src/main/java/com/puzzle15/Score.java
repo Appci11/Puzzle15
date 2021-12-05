@@ -7,8 +7,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
+
 @Entity
-public class Scores {
+public class Score {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
@@ -17,10 +20,21 @@ public class Scores {
     private String name;
     @NonNull
     @ColumnInfo(name = "score")
-    private int score;
+    private long score;
     @NonNull
     @ColumnInfo(name = "game_mode")
     private String gameMode;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @ColumnInfo(name = "date")
+    private String date;
 
     public long getId() {
         return id;
@@ -39,11 +53,11 @@ public class Scores {
         this.name = name;
     }
 
-    public int getScore() {
+    public long getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(long score) {
         this.score = score;
     }
 

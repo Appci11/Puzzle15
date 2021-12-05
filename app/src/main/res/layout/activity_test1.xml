@@ -15,48 +15,46 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName|textCapWords"
-        android:text="First Name"
+        android:hint="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtTest1Email"
+        android:id="@+id/txtTest1Score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="textPersonName|textCapWords"
-        android:text="Last Name"
+        android:hint="Score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTest1Name" />
 
     <EditText
-        android:id="@+id/txtTest1Password"
+        android:id="@+id/txtTest1GameMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:inputType="phone"
-        android:text="Phone Number"
+        android:hint="Game Mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTest1Email" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTest1Score" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Save"
+        android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTest1Password" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTest1GameMode" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -71,14 +69,15 @@
         <TextView
             android:id="@+id/txt_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
     </ScrollView>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="exists?"
+        android:text="Show"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button" />

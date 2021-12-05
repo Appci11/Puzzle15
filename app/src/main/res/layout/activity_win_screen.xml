@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WinScreen"
+    android:padding="10dp"
     android:background="?attr/backgroundColor">
 
     <TextView
@@ -21,12 +22,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnWinBack"
+        android:id="@+id/btnWinReplay"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="@string/MainMenu"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Replay"
+        app:layout_constraintBottom_toTopOf="@+id/btnWinBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtWinnScreen" />
+
+    <Button
+        android:id="@+id/btnWinBack"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/MainMenu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

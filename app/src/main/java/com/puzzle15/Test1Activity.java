@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Test1Activity extends MainActivity {
@@ -33,55 +36,57 @@ public class Test1Activity extends MainActivity {
 
         personsListTextView = (TextView) findViewById(R.id.txt_list);
         firstNameEditText = (EditText) findViewById(R.id.txtTest1Name);
-        lastNameEditText = (EditText) findViewById(R.id.txtTest1Email);
-        phoneNumberEditText = (EditText) findViewById(R.id.txtTest1Password);
+        lastNameEditText = (EditText) findViewById(R.id.txtTest1Score);
+        phoneNumberEditText = (EditText) findViewById(R.id.txtTest1GameMode);
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
-
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int sk = db.accountDAO().exists("ccc");
-                System.out.println("AAAAAAA: " + sk);
-                getAccountsInList();
-            }
-        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = firstNameEditText.getText().toString().trim();
-                String surname = lastNameEditText.getText().toString().trim();
-                String phoneNumber = phoneNumberEditText.getText().toString().trim();
 
-                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(surname)
-                        || TextUtils.isEmpty(phoneNumber)) {
-                    Toast.makeText(getApplicationContext(),
-                            "Name/Surname/Phone Number should not be empty",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Account account = new Account();
-                    account.setName(name);
-                    account.setSurname(surname);
-                    account.setPhoneNumber(phoneNumber);
-                    //reiketu sitaip
-                    //AsyncTask.execute(() -> db.personDAO().insert(person));
-                    db.accountDAO().insert(account);
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Saved successfully",
-                            Toast.LENGTH_SHORT
-                    ).show();
-                    firstNameEditText.setText("");
-                    lastNameEditText.setText("");
-                    phoneNumberEditText.setText("");
-                    firstNameEditText.requestFocus();
-                    getAccountsInList();
-                }
+                //String name = "Vardas2";
+                //int score = 11000;
+                //String gameMode = "Random";
+
+                String name = firstNameEditText.getText().toString().trim();
+                int score = Integer.parseInt(lastNameEditText.getText().toString().trim());
+                String gameMode = phoneNumberEditText.getText().toString().trim();
+
+                Date c = Calendar.getInstance().getTime();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String formattedDate = formatter.format(c);
+
+                Score taskai = new Score();
+                taskai.setName(name);
+                taskai.setScore(score);
+                taskai.setGameMode(gameMode);
+                taskai.setDate(formattedDate);
+                db.scoresDAO().insert(taskai);
+
+//                }
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getScoresInList();
             }
         });
     }
+
+    private void getScoresInList() {
+        personsListTextView.setText("");
+        //List<Score> scoresList = db.scoresDAO().getTopNScores(20);
+        List<Score> scoresList = db.scoresDAO().getUsersNScores(20, "aaa");
+        //List<Score> scoresList = db.scoresDAO().getUsersNScoresMode(20, "Vardas2", "Random");
+        for (Score score : scoresList) {
+            String eil = String.format("%-3d %-8s %-8d %-8s %-20s\n",score.getId(), score.getName(), score.getScore(), score.getGameMode(), score.getDate());
+            personsListTextView.append(eil);
+        }
+    }
+    //nebereikalinga
     private void getAccountsInList() {
         personsListTextView.setText("");
         List<Account> accountList = db.accountDAO().getAllPersons();

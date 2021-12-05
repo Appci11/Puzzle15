@@ -1,30 +1,23 @@
 package com.puzzle15;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Struct;
-import java.util.ArrayList;
-
 
 public class WinScreen extends MainActivity {
 
-    TextView txtWinnScreen;
+    TextView txtWinScreen;
 
     double score;
 
-    Button btnWinBack;
+    Button btnWinBack, btnReplay;
+
     MediaPlayer player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +28,12 @@ public class WinScreen extends MainActivity {
 
         score = SessionScore.score;
 
-        txtWinnScreen = findViewById(R.id.txtWinnScreen);
-        txtWinnScreen.setText("Game Won!!!\n" + "Score: " + String.valueOf(score) +
+        txtWinScreen = findViewById(R.id.txtWinnScreen);
+        txtWinScreen.setText("Game Won!!!\n" + "Score: " + String.valueOf(score) +
                 "\nTurns taken: " + SessionScore.turns + "\nTime taken: " + SessionScore.time + " seconds");
 
         btnWinBack = findViewById(R.id.btnWinBack);
+        btnReplay = findViewById(R.id.btnWinReplay);
 
         btnWinBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +43,19 @@ public class WinScreen extends MainActivity {
                 startActivity(intent);
             }
         });
+        btnReplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                if (GameParams.gameMode.compareTo("Random") == 0) {
+                    intent = new Intent(WinScreen.this, RandomGameActivity.class);
+                } else {
+                    intent = new Intent(WinScreen.this, CustomGameActivity.class);
+                }
+                startActivity(intent);
+            }
+
+        });
 
         //Save HighScore;
         HighScoreController controller = new HighScoreController();
@@ -56,14 +63,13 @@ public class WinScreen extends MainActivity {
 
     }
 
-    public void play()
-    {
-        player = MediaPlayer.create(this,R.raw.wineffect);
+    public void play() {
+        player = MediaPlayer.create(this, R.raw.wineffect);
         player.start();
         player.setLooping(true);
     }
 
-    public void onStop () {
+    public void onStop() {
         // Do your stuff here
         player.stop();
         super.onStop();

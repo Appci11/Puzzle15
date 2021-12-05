@@ -1,7 +1,7 @@
 package com.puzzle15;
 
 public class GameParams {
-    //general
+    //General
     public static String gameMode = "";
     public static int score = 0;
 
