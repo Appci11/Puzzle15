@@ -18,15 +18,18 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class RandomGameActivity extends MainActivity {
     private TextView timerText;
-    MediaPlayer player;
+    MediaPlayer player, playerBG;
     public static final String SHARED_PREFS = "musicSettings";
-    private boolean effectswitchOnOff;
+    private boolean effectswitchOnOff, swchMusic;
+    ArrayList<Integer> playlist;
+    int ii=0;
     Timer timer;
     TimerTask timerTask;
     Double time = 0.0;
@@ -37,8 +40,8 @@ public class RandomGameActivity extends MainActivity {
     TextView txtWinScreen;
     String message;
 
-    int style = (int) CustomGameParams.cardStyle;
-    int image = (int) CustomGameParams.pictureId;
+    int style = (int) GameParams.cardStyle;
+    int image = (int) GameParams.pictureId;
 
     private ImageView progressBar; //test
 
@@ -63,6 +66,9 @@ public class RandomGameActivity extends MainActivity {
 
         progressBar = findViewById(R.id.progressBar);//test
         player = MediaPlayer.create(this,R.raw.tile_sound);
+
+        musicListArray();
+        playBG();
 
         timer = new Timer();
         startTimer();
@@ -90,14 +96,14 @@ public class RandomGameActivity extends MainActivity {
         resetBoard();
         do {
             resetBoard();
-            if (CustomGameParams.turnsToFinish == -1) {
+            if (GameParams.turnsToFinish == -1) {
                 //randomizeBoard();
             }
         } while (!checkIfSolvable());
 
-        if (CustomGameParams.turnsToFinish > 0) {
-            Log.v("Unsolving board", "unsolve board " + CustomGameParams.turnsToFinish);
-            unsolveBoard(CustomGameParams.turnsToFinish);
+        if (GameParams.turnsToFinish > 0) {
+            Log.v("Unsolving board", "unsolve board " + GameParams.turnsToFinish);
+            unsolveBoard(GameParams.turnsToFinish);
         }
 
     }
@@ -273,8 +279,8 @@ public class RandomGameActivity extends MainActivity {
         receivingTile.setContentDescription(movingTile.getContentDescription());
         play();
         turnCount++;
-        if (CustomGameParams.turnsToFinish != -1) {
-            if (turnCount > CustomGameParams.turnsToFinish) {
+        if (GameParams.turnsToFinish != -1) {
+            if (turnCount > GameParams.turnsToFinish) {
                 //FAIL GAME
             }
         }
@@ -405,8 +411,48 @@ public class RandomGameActivity extends MainActivity {
     {
         SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         effectswitchOnOff = sharedPreferences.getBoolean("swchEffect", true);
+
         if (effectswitchOnOff) {
             player.start();
         }
+    }
+
+    public void onCompletion (MediaPlayer mp)
+    {
+        if(playlist.size() == ii+1)
+        {
+            ii = 0;
+        }
+        else
+            ii++;
+
+        playerBG.stop();
+        playBG();
+    }
+    public void playBG()
+    {
+        SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        swchMusic = sharedPreferences.getBoolean("swchMusic", true);
+        if (swchMusic && playlist.size()>0) {
+            {
+                playerBG = MediaPlayer.create(this, playlist.get(ii));
+                playerBG.start();
+                playerBG.setOnCompletionListener(this::onCompletion);
+            }
+        }
+    }
+
+    public void musicListArray(){
+        SharedPreferences sharedPreferences = this.getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        playlist = new ArrayList<>();
+        if(sharedPreferences.getBoolean("song1", true)){playlist.add(R.raw.forestwalk);}
+        if(sharedPreferences.getBoolean("song2", true)){playlist.add(R.raw.piano);}
+        if(sharedPreferences.getBoolean("song3", true)){playlist.add(R.raw.justrelax);}
+    }
+    public void onStop () {
+        // Do your stuff here
+        player.stop();
+        playerBG.stop();
+        super.onStop();
     }
 }

@@ -24,7 +24,7 @@ import androidx.fragment.app.Fragment;
 public class SettingsTabSoundFragment extends Fragment {
 
     SwitchCompat swchEffects, swchMusic;
-    CheckBox chkBoxSong1, chkBoxSong2;
+    CheckBox chkBoxSong1, chkBoxSong2, chkBoxSong3;
 
     private boolean musicswitchOnOff,effectswitchOnOff;
 
@@ -83,13 +83,19 @@ public class SettingsTabSoundFragment extends Fragment {
         chkBoxSong1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(getActivity(), "Song 1 checked: " + compoundButton.isChecked(), Toast.LENGTH_SHORT).show();
+                saveData();
             }
         });
         chkBoxSong2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(getActivity(), "Song 2 checked: " + b, Toast.LENGTH_SHORT).show();
+                saveData();
+            }
+        });
+        chkBoxSong3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                saveData();
             }
         });
 
@@ -104,6 +110,7 @@ public class SettingsTabSoundFragment extends Fragment {
 
         chkBoxSong1 = view.findViewById(R.id.chkBoxSong1);
         chkBoxSong2 = view.findViewById(R.id.chkBoxSong2);
+        chkBoxSong3 = view.findViewById(R.id.chkBoxSong3);
 
     }
 
@@ -113,6 +120,10 @@ public class SettingsTabSoundFragment extends Fragment {
         editor.putBoolean("swchMusic", swchMusic.isChecked());
         editor.putBoolean("swchEffect", swchEffects.isChecked());
 
+        editor.putBoolean("song1",chkBoxSong1.isChecked());
+        editor.putBoolean("song2",chkBoxSong2.isChecked());
+        editor.putBoolean("song3",chkBoxSong3.isChecked());
+
         editor.apply();
 
         //Toast.makeText(this.getActivity(), "Data saved", Toast.LENGTH_SHORT).show();
@@ -120,10 +131,12 @@ public class SettingsTabSoundFragment extends Fragment {
 
     public void loadData() {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-
         musicswitchOnOff = sharedPreferences.getBoolean("swchMusic", true);
-
         effectswitchOnOff = sharedPreferences.getBoolean("swchEffect", true);
+
+        chkBoxSong1.setChecked(sharedPreferences.getBoolean("song1", true));
+        chkBoxSong2.setChecked(sharedPreferences.getBoolean("song2", true));
+        chkBoxSong3.setChecked(sharedPreferences.getBoolean("song3", true));
 
     }
 

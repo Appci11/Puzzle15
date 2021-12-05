@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,11 +24,14 @@ public class WinScreen extends MainActivity {
     double score;
 
     Button btnWinBack;
-
+    MediaPlayer player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win_screen);
+
+
+        play();
 
         score = SessionScore.score;
 
@@ -45,10 +50,23 @@ public class WinScreen extends MainActivity {
             }
         });
 
-
         //Save HighScore;
         HighScoreController controller = new HighScoreController();
         controller.UpdateHighScoreList(new HighScoreData(score), getFilesDir().getAbsolutePath());
 
     }
+
+    public void play()
+    {
+        player = MediaPlayer.create(this,R.raw.wineffect);
+        player.start();
+        player.setLooping(true);
+    }
+
+    public void onStop () {
+        // Do your stuff here
+        player.stop();
+        super.onStop();
+    }
+
 }
