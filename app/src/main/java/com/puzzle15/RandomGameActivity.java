@@ -38,7 +38,6 @@ public class RandomGameActivity extends MainActivity {
     int turnCount;
     TextView txtTurnCount;
     TextView txtWinScreen;
-    String message;
 
     int style = (int) GameParams.cardStyle;
     int image = (int) GameParams.pictureId;
@@ -74,7 +73,6 @@ public class RandomGameActivity extends MainActivity {
         startTimer();
 
         turnCount = 0;
-        message = "";
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -284,7 +282,6 @@ public class RandomGameActivity extends MainActivity {
                 //FAIL GAME
             }
         }
-        System.out.println(turnCount);
         txtTurnCount.setText(String.valueOf(turnCount));
         receivingTile.setImageDrawable(getDrawableFromGameTileIndex(Integer.parseInt(String.valueOf(movingTile.getContentDescription()))));
         receivingTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -304,15 +301,22 @@ public class RandomGameActivity extends MainActivity {
                     //win
                     Log.v("Win", "Win");
 
+                    if(GameParams.gameMode.compareTo("Random") == 0)
+                    {
+                        score = (1000 - time) * (100 - turnCount);
+                        SessionScore.turns = turnCount;
+                    }
+                    else{
+                        score = (100 - time) * (turnCount);
+                        SessionScore.turns = turnCount / 2; //nzn kas kur pripliusina sita nereikalingai, mini fix...
+                    }
 
-                    score = (1000 - time) * (100 - turnCount);
-                    message = message + "";
                     txtWinScreen.setText(String.valueOf(score));
                     txtWinScreen.setVisibility((View.VISIBLE));
 
                     SessionScore.score = score;
                     SessionScore.time = time;
-                    SessionScore.turns = turnCount;
+
 
 
                     //button1.setVisibility(View.INVISIBLE);

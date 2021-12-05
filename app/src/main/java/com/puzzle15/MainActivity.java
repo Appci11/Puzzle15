@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btnRandomGame:
                 GameParams.turnsToFinish = -1;
+                GameParams.gameMode = "Random";
                 intent = new Intent(MainActivity.this, RandomGameActivity.class);
                 break;
             case R.id.btnCustomGame:

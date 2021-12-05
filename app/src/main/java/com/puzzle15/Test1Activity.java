@@ -78,11 +78,11 @@ public class Test1Activity extends MainActivity {
 
     private void getScoresInList() {
         personsListTextView.setText("");
-        //List<Score> scoresList = db.scoresDAO().getTopNScores(20);
-        List<Score> scoresList = db.scoresDAO().getUsersNScores(20, "aaa");
+        List<Score> scoresList = db.scoresDAO().getTopNScores(20);
+        //List<Score> scoresList = db.scoresDAO().getUsersNScores(20, "aaa");
         //List<Score> scoresList = db.scoresDAO().getUsersNScoresMode(20, "Vardas2", "Random");
         for (Score score : scoresList) {
-            String eil = String.format("%-3d %-8s %-8d %-8s %-20s\n",score.getId(), score.getName(), score.getScore(), score.getGameMode(), score.getDate());
+            String eil = String.format("%-3d %-8s %-8d %-8s %-19s\n",score.getId(), score.getName(), score.getScore(), score.getGameMode(), score.getDate());
             personsListTextView.append(eil);
         }
     }

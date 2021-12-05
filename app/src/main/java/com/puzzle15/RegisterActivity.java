@@ -2,6 +2,7 @@ package com.puzzle15;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -50,24 +51,24 @@ public class RegisterActivity extends MainActivity {
                 String pass = edtTxtPassword.getText().toString().trim();
                 String pass2 = edtTxtPassword2.getText().toString().trim();
 
-//                if(!agreementCheck.isChecked()){
-//                    Toast.makeText(getApplicationContext(), "Please agree to EULA", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if (TextUtils.isEmpty(name)
-//                        || TextUtils.isEmpty(email)
-//                        || TextUtils.isEmpty(pass)
-//                        || TextUtils.isEmpty(pass2)) {
-//                Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if(pass.compareTo(pass2) != 0){
-//                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if(db.accountDAO().exists(name) == 1){  //if already exists
-//                    Toast.makeText(getApplicationContext(), "User already exists", Toast.LENGTH_SHORT).show();
-//                }
+                if(!agreementCheck.isChecked()){
+                    Toast.makeText(getApplicationContext(), "Please agree to EULA", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(name)
+                        || TextUtils.isEmpty(email)
+                        || TextUtils.isEmpty(pass)
+                        || TextUtils.isEmpty(pass2)) {
+                Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(pass.compareTo(pass2) != 0){
+                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(db.accountDAO().exists(name) == 1){  //if already exists
+                    Toast.makeText(getApplicationContext(), "User already exists", Toast.LENGTH_SHORT).show();
+                }
 
 
                 Account account = new Account();    //kadangi patingejom konstruktoriu rasyt, add values per .set

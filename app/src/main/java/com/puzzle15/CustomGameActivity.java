@@ -35,10 +35,10 @@ public class CustomGameActivity extends MainActivity {
                     GameParams.turnsToFinish = 20;
                 }
 
-
                 GameParams.pictureId = imageSpinner.getSelectedItemId();
                 GameParams.cardStyle = CardStyleSpinner.getSelectedItemId();
 
+                GameParams.gameMode = "Custom";
                 Intent intent = new Intent(CustomGameActivity.this, RandomGameActivity.class);
                 startActivity(intent);
             }

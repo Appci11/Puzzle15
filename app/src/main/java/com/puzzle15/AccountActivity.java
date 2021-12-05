@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,11 +36,11 @@ public class AccountActivity extends MainActivity {
                 //Toast.makeText(AccountActivity.this, "Clicked Login", Toast.LENGTH_SHORT).show();
                 String name = edtTxtName.getText().toString().trim();
                 String pass = edtTxtPassword.getText().toString().trim();
-//                if (TextUtils.isEmpty(name)
-//                        || TextUtils.isEmpty(pass)) {
-//                Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+                if (TextUtils.isEmpty(name)
+                        || TextUtils.isEmpty(pass)) {
+                Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 int check = db.accountDAO().tryLogin(name, pass);
                 if(check != 1){
                     Toast.makeText(getApplicationContext(), "Wrong user name or password", Toast.LENGTH_SHORT).show();
