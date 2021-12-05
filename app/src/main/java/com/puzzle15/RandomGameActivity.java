@@ -452,7 +452,18 @@ public class RandomGameActivity extends MainActivity {
     public void onStop () {
         // Do your stuff here
         player.stop();
-        playerBG.stop();
+        playerBG.pause();
         super.onStop();
+    }
+    public void onDestroy () {
+        // Do your stuff here
+        player.stop();
+        playerBG.stop();
+        super.onDestroy();
+    }
+    public void onResume () {
+        super.onResume();
+        playerBG.start();
+
     }
 }
