@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class Highscore2Activity extends AppCompatActivity {
+public class Highscore2Activity extends MainActivity {
 
     RadioGroup rgScoreCount, rgGameMode;
     Button btnMyScores, btnAllScores;

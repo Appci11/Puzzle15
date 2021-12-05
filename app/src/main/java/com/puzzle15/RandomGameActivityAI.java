@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class RandomGameActivityAI extends AppCompatActivity {
+public class RandomGameActivityAI extends MainActivity {
 
     Button btnToMenu;
 

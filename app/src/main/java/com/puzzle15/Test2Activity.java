@@ -13,7 +13,7 @@ import androidx.room.Room;
 
 import java.util.List;
 
-public class Test2Activity extends AppCompatActivity {
+public class Test2Activity extends MainActivity {
 
 
 
