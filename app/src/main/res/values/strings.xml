@@ -37,6 +37,12 @@
     <string name="Apply">Apply</string>
     <string name="logged_in_as">Logged in as:</string>
     <string name="logged_out">Logged out.</string>
+    <string name="choose_image">Choose image</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_correct">Confirm if selected picture is correct</string>
+    <string name="guide">Game guide</string>
+    <string name="account">Account</string>
+
 
 
     <array name="languages">

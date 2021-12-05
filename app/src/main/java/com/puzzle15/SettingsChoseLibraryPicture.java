@@ -124,7 +124,9 @@ public class SettingsChoseLibraryPicture extends  MainActivity {
         ArrayList<Bitmap> bs = new ArrayList<Bitmap>();
 
         Bitmap b = bitmap;
-        divideImages(bs, b);
+        Bitmap c = cropToSquare(b);
+
+        divideImages(bs, c);
 
         //Sicia paimt root kai reikes pridet prie paveiksliuku    <<<---------------------
         File root = new File(getFilesDir().getAbsolutePath(), "SavedImage");
@@ -151,6 +153,26 @@ public class SettingsChoseLibraryPicture extends  MainActivity {
         soutFilesOfDir(root);
 
     }
+
+    /**
+     * Apkarpo nuotrauka i 1:1 krastiniu santyki
+     * @param bitmap
+     * @return
+     */
+    public static Bitmap cropToSquare(Bitmap bitmap){
+        int width  = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int newWidth = (height > width) ? width : height;
+        int newHeight = (height > width)? height - ( height - width) : height;
+        int cropW = (width - height) / 2;
+        cropW = (cropW < 0)? 0: cropW;
+        int cropH = (height - width) / 2;
+        cropH = (cropH < 0)? 0: cropH;
+        Bitmap cropImg = Bitmap.createBitmap(bitmap, cropW, cropH, newWidth, newHeight);
+
+        return cropImg;
+    }
+
 
     /**
      * I konsole isveda failu pavadinimus rastus nurodytoje papkeje

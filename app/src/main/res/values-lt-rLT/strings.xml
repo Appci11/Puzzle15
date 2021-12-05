@@ -37,6 +37,11 @@
     <string name="Apply">Patvirtinti</string>
     <string name="logged_in_as">Prisijungta kaip:</string>
     <string name="logged_out">Neprisijungta.</string>
+    <string name="choose_image">Pasirinkti nuotrauką</string>
+    <string name="confirm">Patvirtinti</string>
+    <string name="confirm_correct">Patvirtinti pasirinktą nuotrauką</string>
+    <string name="guide">Žaidimo vadovas</string>
+    <string name="account">Paskyra</string>
 
 
     <array name="languages">
