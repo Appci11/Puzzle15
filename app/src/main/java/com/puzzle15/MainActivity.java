@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
     private TextView txtLoggedInName;
 
-    private Button btnTest1;
+    private Button btnTest1, btnTest2;
 
     public int language, theme;
     public static final String SHARED_PREFS = "gameSettings";
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnGameGuide.setOnClickListener(this);
 
         btnTest1.setOnClickListener(this);
+        btnTest2.setOnClickListener(this);
 
 // pvz jei kitur reiketu
  /*       btnRandomGame.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtLoggedInName = findViewById(R.id.txtLoginName);
 
         btnTest1 = findViewById(R.id.btnToTest1);
+        btnTest2 = findViewById(R.id.btnToTest2);
     }
 
     @Override
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this, AboutActivity.class);
                 break;
             case R.id.btnHighScoreView:
-                intent = new Intent(MainActivity.this, HighScoreViewActivity.class);
+                intent = new Intent(MainActivity.this, Highscore2Activity.class);
                 break;
             case R.id.btnAccount:
                 intent = new Intent(MainActivity.this, AccountActivity.class);
@@ -107,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnToTest1:
                 intent = new Intent(MainActivity.this, Test1Activity.class);
+                break;
+            case R.id.btnToTest2:
+                intent = new Intent(MainActivity.this, Test2Activity.class);
                 break;
             default:
                 Toast.makeText(this, "Kriu", Toast.LENGTH_SHORT).show();

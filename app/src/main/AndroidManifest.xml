@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme_Green">
         <activity
+            android:name=".Test2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Highscore2Activity"
+            android:exported="true" />
+        <activity
             android:name=".RandomGameActivityAI"
             android:exported="true" />
         <activity
