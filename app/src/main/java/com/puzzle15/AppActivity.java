@@ -1,3 +1,5 @@
+//Praktiskai neikur nepavyksta naudot, bet gal kada pavyks...
+
 package com.puzzle15;
 
 import android.app.Application;

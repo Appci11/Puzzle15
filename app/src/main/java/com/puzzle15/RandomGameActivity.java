@@ -37,8 +37,8 @@ public class RandomGameActivity extends MainActivity {
     TextView txtWinScreen;
     String message;
 
-    int style = (int) CustomGameParams.cardStyle;
-    int image = (int) CustomGameParams.pictureId;
+    int style = (int) GameParams.cardStyle;
+    int image = (int) GameParams.pictureId;
 
     private ImageView progressBar; //test
 
@@ -90,14 +90,14 @@ public class RandomGameActivity extends MainActivity {
         resetBoard();
         do {
             resetBoard();
-            if (CustomGameParams.turnsToFinish == -1) {
+            if (GameParams.turnsToFinish == -1) {
                 //randomizeBoard();
             }
         } while (!checkIfSolvable());
 
-        if (CustomGameParams.turnsToFinish > 0) {
-            Log.v("Unsolving board", "unsolve board " + CustomGameParams.turnsToFinish);
-            unsolveBoard(CustomGameParams.turnsToFinish);
+        if (GameParams.turnsToFinish > 0) {
+            Log.v("Unsolving board", "unsolve board " + GameParams.turnsToFinish);
+            unsolveBoard(GameParams.turnsToFinish);
         }
 
     }
@@ -273,8 +273,8 @@ public class RandomGameActivity extends MainActivity {
         receivingTile.setContentDescription(movingTile.getContentDescription());
         play();
         turnCount++;
-        if (CustomGameParams.turnsToFinish != -1) {
-            if (turnCount > CustomGameParams.turnsToFinish) {
+        if (GameParams.turnsToFinish != -1) {
+            if (turnCount > GameParams.turnsToFinish) {
                 //FAIL GAME
             }
         }

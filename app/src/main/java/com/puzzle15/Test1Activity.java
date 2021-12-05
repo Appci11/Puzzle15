@@ -44,7 +44,7 @@ public class Test1Activity extends MainActivity {
             public void onClick(View view) {
                 int sk = db.accountDAO().exists("ccc");
                 System.out.println("AAAAAAA: " + sk);
-                getDatabaseInList();
+                getAccountsInList();
             }
         });
 
@@ -77,17 +77,19 @@ public class Test1Activity extends MainActivity {
                     lastNameEditText.setText("");
                     phoneNumberEditText.setText("");
                     firstNameEditText.requestFocus();
-                    getDatabaseInList();
+                    getAccountsInList();
                 }
             }
         });
     }
-    private void getDatabaseInList() {
+    private void getAccountsInList() {
         personsListTextView.setText("");
         List<Account> accountList = db.accountDAO().getAllPersons();
         for (Account account : accountList) {
-            personsListTextView.append(account.getName() + " " +
-                    account.getSurname() + " : " + account.getPhoneNumber());
+            personsListTextView.append(account.getId() + " "
+                    + account.getName() + " "
+                    + account.getSurname() + " : "
+                    + account.getPhoneNumber());
             personsListTextView.append("\n");
         }
     }

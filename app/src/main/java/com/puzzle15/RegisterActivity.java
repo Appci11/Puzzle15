@@ -70,7 +70,7 @@ public class RegisterActivity extends MainActivity {
 //                }
 
 
-                Account account = new Account();
+                Account account = new Account();    //kadangi patingejom konstruktoriu rasyt, add values per .set
                 account.setName(name);
                 account.setSurname(email);
                 account.setPhoneNumber(pass);

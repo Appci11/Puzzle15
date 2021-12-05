@@ -1,15 +1,11 @@
 package com.puzzle15;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -34,14 +30,14 @@ public class CustomGameActivity extends MainActivity {
 
 
                 try {
-                    CustomGameParams.turnsToFinish = Integer.parseInt(edtTxtStepsToFinish.getText().toString());
+                    GameParams.turnsToFinish = Integer.parseInt(edtTxtStepsToFinish.getText().toString());
                 } catch(NumberFormatException nfe) {
-                    CustomGameParams.turnsToFinish = 20;
+                    GameParams.turnsToFinish = 20;
                 }
 
 
-                CustomGameParams.pictureId = imageSpinner.getSelectedItemId();
-                CustomGameParams.cardStyle = CardStyleSpinner.getSelectedItemId();
+                GameParams.pictureId = imageSpinner.getSelectedItemId();
+                GameParams.cardStyle = CardStyleSpinner.getSelectedItemId();
 
                 Intent intent = new Intent(CustomGameActivity.this, RandomGameActivity.class);
                 startActivity(intent);
