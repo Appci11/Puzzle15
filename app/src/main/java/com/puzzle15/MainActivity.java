@@ -1,12 +1,9 @@
 package com.puzzle15;
 
-import static com.puzzle15.SettingsTabSoundFragment.SHARED_PREFS;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -17,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.Locale;
 
@@ -87,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = null;
         switch (view.getId()) {
             case R.id.btnRandomGame:
-                CustomGameParams.turnsToFinish = -1;
+                GameParams.turnsToFinish = -1;
                 intent = new Intent(MainActivity.this, RandomGameActivity.class);
                 break;
             case R.id.btnCustomGame:

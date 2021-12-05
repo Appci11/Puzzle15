@@ -1,4 +1,4 @@
-//Database table
+//Database able
 
 package com.puzzle15;
 
@@ -8,18 +8,19 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Account {
+public class Scores {
+
     @PrimaryKey(autoGenerate = true)
     private long id;
     @NonNull
     @ColumnInfo(name = "name")
     private String name;
     @NonNull
-    @ColumnInfo(name = "email")
-    private String surname;
+    @ColumnInfo(name = "score")
+    private int score;
     @NonNull
-    @ColumnInfo(name = "password")
-    private String phoneNumber;
+    @ColumnInfo(name = "game_mode")
+    private String gameMode;
 
     public long getId() {
         return id;
@@ -38,21 +39,20 @@ public class Account {
         this.name = name;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     @NonNull
-    public String getSurname() {
-        return surname;
+    public String getGameMode() {
+        return gameMode;
     }
 
-    public void setSurname(@NonNull String surname) {
-        this.surname = surname;
-    }
-
-    @NonNull
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(@NonNull String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setGameMode(@NonNull String gameMode) {
+        this.gameMode = gameMode;
     }
 }
