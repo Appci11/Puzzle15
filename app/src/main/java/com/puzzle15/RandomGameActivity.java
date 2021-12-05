@@ -455,19 +455,10 @@ public class RandomGameActivity extends MainActivity {
     }
     public void onStop () {
         // Do your stuff here
-        player.stop();
-        playerBG.pause();
+        if(swchMusic){
+        playerBG.stop();
+        }
         super.onStop();
     }
-    public void onDestroy () {
-        // Do your stuff here
-        player.stop();
-        playerBG.stop();
-        super.onDestroy();
-    }
-    public void onResume () {
-        super.onResume();
-        playerBG.start();
 
-    }
 }
