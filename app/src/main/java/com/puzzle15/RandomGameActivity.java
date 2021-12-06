@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -25,6 +26,7 @@ import java.util.Hashtable;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class RandomGameActivity extends MainActivity {
     private TextView timerText;
@@ -113,11 +115,14 @@ public class RandomGameActivity extends MainActivity {
         }
 
         if(GameParams.shouldAISolve){
-            try {
-                solveBoardAI();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            AsyncTask.execute(() -> {
+                try {
+                    solveBoardAI();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+
         }
     }
 
@@ -484,6 +489,8 @@ public class RandomGameActivity extends MainActivity {
 
     private void solveBoardAI() throws InterruptedException {
         for (int i = moveActions.size() - 1; i>0; i--) {
+
+            TimeUnit.SECONDS.sleep(1);
             MoveAction action = moveActions.get(i);
 
             ImageView fromTile = gameTiles[action.toXIndex][action.toYIndex];

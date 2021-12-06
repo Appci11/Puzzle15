@@ -1,6 +1,7 @@
 package com.puzzle15;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -57,6 +58,7 @@ public class CustomGameActivity extends MainActivity {
 
                 GameParams.shouldAISolve = true;
                 GameParams.gameMode = "Custom";
+
                 Intent intent = new Intent(CustomGameActivity.this, RandomGameActivity.class);
                 startActivity(intent);
             }
