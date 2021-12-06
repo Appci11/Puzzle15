@@ -18,7 +18,7 @@
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Account"
+                android:text="@string/Account"
                 android:textColor="@color/black"
                 android:textSize="70px"/>
 
@@ -26,8 +26,7 @@
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Account option gives you login or register to your account.User which  is log in can see his own highscores
-Login Screen:"
+                android:text="@string/AccountText1"
                 android:textColor="@color/black"
                 android:textSize="50px"/>
 
@@ -41,7 +40,7 @@ Login Screen:"
                 android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:text="Registration screen:"
+                android:text="@string/AccountText2"
                 android:textColor="@color/black"
                 android:textSize="50px" />
 

@@ -79,5 +79,16 @@
         <item>Antras</item>
         <item>Pasirinktinis</item>
     </array>
-    <string name="account">Account</string>
+    <string name="GameGuide">Žaidimo vadovas</string>
+    <string name="AboutPuzzle15">Apie Puzzle15</string>
+    <string name="RandomGame">Atsitiktinis Žaidimas</string>
+    <string name="CustomGame">Pasirinktinis Žaidimas</string>
+    <string name="Account">Paskyra</string>
+    <string name="Puzzle15Text">15 galvosūkis (taip pat vadinamas brangakmenių galvosūkiu, boso galvosūkiu, penkiolikos žaidimu, mistikos kvadratu ir daugeliu kitų) yra slankiojantis galvosūkis, turintis 15 kvadratinių plytelių, sunumeruotų 1–15 4 plytelių aukščio ir 4 plytelių pločio rėmelyje, o viena lieka neužimta. plytelių padėtis. Plyteles, esančias toje pačioje atviros pozicijos eilėje ar stulpelyje, galima perkelti atitinkamai slenkant horizontaliai arba vertikaliai. Dėlionės tikslas yra išdėstyti plyteles skaitine tvarka</string>
+    <string name="RandomGameText">Atsitiktinio žaidimo pasirinkimas duoda atsitiktinai sugeneruotą Puzzle 15 žaidimą</string>
+    <string name="RandomGameText1">Po laimėjimo laimėjimo langas atsidaro su infomacija: Kiek laiko buvo užtrukta,kiek ėjimų padaryta , rezultatas.</string>
+    <string name="CustomGameText1">Pasirinkimo žaidimo pasirinkimas leidžia modifikuoti žaidimą: Kiek ėjimų leidžiama padaryti iki žaidimo pabaigos ir kokį kortų stilių pasirinkti.</string>
+    <string name="CustomGameText2">Yra trijų kortų stiliai: Numeriai - Įprastas puzzle 15 žaidimas, Raidės - vietoj skaičių raidės ir Nuotrauka - sudėlioti nuotrauką puzzle 15 principu </string>
+    <string name="AccountText1">Paskyra leidžia prisijungti arba registruotis prie savo paskyros.Vartotojas , kuris yra prisijungęs gali peržiūrėti savo rezultatus.Prisijungimo langas:</string>
+    <string name="AccountText2">Registracijos langas:</string>
 </resources>
