@@ -104,19 +104,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Test1"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btnLogout" />
 
     <Button
         android:id="@+id/btnToTest2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Test2"
+        android:text="Logout"
+        android:textAllCaps="false"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/btnToTest1"
-        app:layout_constraintEnd_toStartOf="@+id/btnToTest1"
-        app:layout_constraintTop_toTopOf="@+id/btnToTest1" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/txtLoginName"

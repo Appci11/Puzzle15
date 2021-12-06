@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView imgLogo;  //Jei sumastytume pakeist keiciant "Theme"
     private TextView txtLoggedInName;
 
-    private Button btnTest1, btnTest2;
+    private Button btnTest1, btnTest2, btnLogout;
 
     public int language, theme;
     public static final String SHARED_PREFS = "gameSettings";
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             txtLoggedInName.append(" " + LoginInfo.name);
         }
 
+
+
         btnRandomGame.setOnClickListener(this);
         btnCustomGame.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
@@ -54,6 +56,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnTest1.setOnClickListener(this);
         btnTest2.setOnClickListener(this);
+
+        btnLogout = findViewById(R.id.btnLogout);
+
+        if(LoginInfo.state == 1){
+            btnLogout.setEnabled(true);
+        }
+        else{
+            btnLogout.setEnabled(false);
+        }
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginInfo.state = 0;
+                LoginInfo.name = "";
+                Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 // pvz jei kitur reiketu
  /*       btnRandomGame.setOnClickListener(new View.OnClickListener() {

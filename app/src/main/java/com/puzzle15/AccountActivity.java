@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class AccountActivity extends MainActivity {
 
-    Button btnToMenu, btnLogin, btnRegister;
+    Button btnToMenu, btnLogin,btnLogout, btnRegister;
     EditText edtTxtName, edtTxtPassword ;
     AppDatabase db;
 
@@ -23,6 +23,7 @@ public class AccountActivity extends MainActivity {
         setContentView(R.layout.activity_account);
 
         btnLogin = findViewById(R.id.btnAccountLogin);
+        btnLogout = findViewById(R.id.btnAccountLogout);
         btnToMenu = findViewById(R.id.btnAccountToMenu);
         btnRegister = findViewById(R.id.btnAccountRegister);
         edtTxtName = findViewById(R.id.txtAccountName);
@@ -52,6 +53,14 @@ public class AccountActivity extends MainActivity {
                     Intent intent = new Intent(AccountActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginInfo.state = 0;
+                LoginInfo.name = "";
+                Toast.makeText(AccountActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
             }
         });
 
