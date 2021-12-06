@@ -206,7 +206,7 @@ public class RandomGameActivity extends MainActivity {
                 if (gameTileIndex == 15) { //quick hack for last piece
                     Drawable resource = getDrawableFromGameTileIndex(0);
                     gameTile.setImageDrawable(resource);
-                    gameTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    gameTile.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     gameTile.setContentDescription(String.valueOf(0));
 
                     int finalRow = row;
@@ -225,7 +225,7 @@ public class RandomGameActivity extends MainActivity {
 
                 Drawable resource = getDrawableFromGameTileIndex(gameTileIndex + 1);
                 gameTile.setImageDrawable(resource);
-                gameTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                gameTile.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 gameTile.setPadding(0, 0, 0, 0);
                 gameTile.setContentDescription(String.valueOf(gameTileIndex + 1));
 
@@ -284,11 +284,11 @@ public class RandomGameActivity extends MainActivity {
         }
         txtTurnCount.setText(String.valueOf(turnCount));
         receivingTile.setImageDrawable(getDrawableFromGameTileIndex(Integer.parseInt(String.valueOf(movingTile.getContentDescription()))));
-        receivingTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        receivingTile.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         movingTile.setContentDescription(description);
         movingTile.setImageDrawable(getDrawableFromGameTileIndex(Integer.parseInt(description)));
-        movingTile.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        movingTile.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
 
     }
@@ -322,7 +322,6 @@ public class RandomGameActivity extends MainActivity {
                     //button1.setVisibility(View.INVISIBLE);
                     Intent intent = new Intent(RandomGameActivity.this, WinScreen.class);
                     startActivity(intent);
-
 
                 }
                 if (gameTiles[row][column].getContentDescription() != String.valueOf(gameTileIndex + 1)) {
