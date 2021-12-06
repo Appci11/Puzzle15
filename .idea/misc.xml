@@ -31,6 +31,7 @@
         <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout-land/activity_random_game.xml" value="0.33" />
         <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout/activity_about.xml" value="0.36666666666666664" />
         <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout/activity_custom_game.xml" value="0.36666666666666664" />
+        <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout/activity_game_guide.xml" value="0.33" />
         <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout/activity_high_score_view.xml" value="0.36666666666666664" />
         <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout/activity_highscore2.xml" value="0.36666666666666664" />
         <entry key="..\:/aaa/Android/Puzzle15/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
@@ -68,7 +69,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

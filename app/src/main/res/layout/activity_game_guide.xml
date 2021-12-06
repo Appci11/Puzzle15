@@ -28,41 +28,41 @@
         android:id="@+id/btnGameGuideToAboutPuzzle"
         android:layout_width="177dp"
         android:layout_height="50dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="604dp"
+        android:layout_marginTop="50dp"
         android:text="@string/AboutPuzzle15"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGameGuideToAccount" />
 
     <Button
         android:id="@+id/btnGameGuideToRandomGame"
         android:layout_width="177dp"
         android:layout_height="50dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="512dp"
+        android:layout_marginTop="100dp"
         android:text="@string/RandomGame"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnGameGuideToCustomGame"
         android:layout_width="177dp"
         android:layout_height="50dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginTop="50dp"
         android:text="@string/CustomGame"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGameGuideToRandomGame" />
 
     <Button
         android:id="@+id/btnGameGuideToAccount"
         android:layout_width="177dp"
         android:layout_height="50dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginTop="50dp"
         android:text="@string/Account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGameGuideToCustomGame" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
