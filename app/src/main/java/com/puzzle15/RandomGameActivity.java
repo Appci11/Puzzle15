@@ -511,6 +511,6 @@ public class RandomGameActivity extends MainActivity {
     }
 
     private LastDirection directionToTake(){
-        return moveActions.get(turnCount).direction;
+        return moveActions.get(GameParams.turnsToFinish - turnCount).direction;
     }
 }
