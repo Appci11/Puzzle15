@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -52,14 +53,15 @@ public class RandomGameActivity extends MainActivity {
 
     private ImageView progressBar; //test
 
+    private boolean stepsTaken;
 
     private ConstraintLayout gameTileHolder;
     private ImageView[][] gameTiles = new ImageView[4][4];
 
     public ArrayList<MoveAction> moveActions = new ArrayList<>();
 
-    private enum LastDirection {NONE, LEFT, RIGHT, UP, DOWN}
-    private LastDirection lastDirection = LastDirection.NONE;
+    public enum LastDirection {NONE, LEFT, RIGHT, UP, DOWN}
+    public LastDirection lastDirection = LastDirection.NONE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,7 +179,7 @@ public class RandomGameActivity extends MainActivity {
                 switch (direction) {
                     case 0: //left
                         if (column != 0 && lastDirection != LastDirection.RIGHT) {
-                            moveActions.add(new MoveAction(row, row, column - 1, column));
+                            moveActions.add(new MoveAction(row, row, column - 1, column, LastDirection.LEFT));
                             //left has something! Move it to the empty spot
                             moveTile(gameTiles[row][column - 1], gameTile);
                             goodMoveFound = true;
@@ -186,8 +188,8 @@ public class RandomGameActivity extends MainActivity {
                         }
                         break;
                     case 1: //right
-                        if (column != gameTiles[0].length - 1 && lastDirection != LastDirection.LEFT) {
-                            moveActions.add(new MoveAction(row, row, column + 1, column));
+                        if (column != gameTiles[0].length - 1 && lastDirection != LastDirection.RIGHT) {
+                            moveActions.add(new MoveAction(row, row, column + 1, column,  LastDirection.RIGHT));
                             moveTile(gameTiles[row][column + 1], gameTile);
                             goodMoveFound = true;
                             lastDirection = LastDirection.RIGHT;
@@ -196,7 +198,7 @@ public class RandomGameActivity extends MainActivity {
                         break;
                     case 2: //up
                         if (row != 0 && lastDirection != LastDirection.DOWN) {
-                            moveActions.add(new MoveAction(row - 1, row, column, column));
+                            moveActions.add(new MoveAction(row - 1, row, column, column, LastDirection.UP));
                             moveTile(gameTiles[row - 1][column], gameTile);
                             goodMoveFound = true;
                             lastDirection = LastDirection.UP;
@@ -205,7 +207,7 @@ public class RandomGameActivity extends MainActivity {
                         break;
                     case 3: //down
                         if (row != gameTiles.length - 1 && lastDirection != LastDirection.UP) {
-                            moveActions.add(new MoveAction(row + 1, row, column, column));
+                            moveActions.add(new MoveAction(row + 1, row, column, column, LastDirection.DOWN));
 
                             moveTile(gameTiles[row + 1][column], gameTile);
                             goodMoveFound = true;
@@ -521,5 +523,9 @@ public class RandomGameActivity extends MainActivity {
             moveTile(fromTile, toTile);
             Log.v("Move s ", " From " + action.fromXIndex + ", " + action.fromYIndex + " to " + +action.toXIndex + ", " + action.toYIndex);
         }
+    }
+
+    private LastDirection directionToTake(){
+        return moveActions.get(turnCount).direction;
     }
 }
