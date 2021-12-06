@@ -55,6 +55,9 @@ public class RandomGameActivity extends MainActivity {
 
     public ArrayList<MoveAction> moveActions = new ArrayList<>();
 
+    private enum LastDirection {NONE, LEFT, RIGHT, UP, DOWN}
+    private LastDirection lastDirection = LastDirection.NONE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,36 +161,40 @@ public class RandomGameActivity extends MainActivity {
             int direction = random.nextInt(4);
                 switch (direction) {
                     case 0: //left
-                        if (column != 0) {
+                        if (column != 0 && lastDirection != LastDirection.RIGHT) {
                             moveActions.add(new MoveAction(row, row, column - 1, column));
                             //left has something! Move it to the empty spot
                             moveTile(gameTiles[row][column - 1], gameTile);
                             goodMoveFound = true;
+                            lastDirection = LastDirection.LEFT;
                             Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
                     case 1: //right
-                        if (column != gameTiles[0].length - 1) {
+                        if (column != gameTiles[0].length - 1 && lastDirection != LastDirection.LEFT) {
                             moveActions.add(new MoveAction(row, row, column + 1, column));
                             moveTile(gameTiles[row][column + 1], gameTile);
                             goodMoveFound = true;
+                            lastDirection = LastDirection.RIGHT;
                             Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
                     case 2: //up
-                        if (row != 0) {
+                        if (row != 0 && lastDirection != LastDirection.DOWN) {
                             moveActions.add(new MoveAction(row - 1, row, column, column));
                             moveTile(gameTiles[row - 1][column], gameTile);
                             goodMoveFound = true;
+                            lastDirection = LastDirection.UP;
                             Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
                     case 3: //down
-                        if (row != gameTiles.length - 1) {
+                        if (row != gameTiles.length - 1 && lastDirection != LastDirection.UP) {
                             moveActions.add(new MoveAction(row + 1, row, column, column));
 
                             moveTile(gameTiles[row + 1][column], gameTile);
                             goodMoveFound = true;
+                            lastDirection = LastDirection.DOWN;
                             Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
