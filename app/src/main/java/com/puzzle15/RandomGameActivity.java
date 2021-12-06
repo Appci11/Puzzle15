@@ -29,6 +29,9 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class RandomGameActivity extends MainActivity {
+
+    Button nextStep;
+
     private TextView timerText;
     MediaPlayer player, playerBG;
     public static final String SHARED_PREFS = "musicSettings";
@@ -65,6 +68,8 @@ public class RandomGameActivity extends MainActivity {
 
         Log.v("Created Random Game Activity", "starting activity");
 
+
+        nextStep = findViewById(R.id.btnNextStep);
 
         Button menu = findViewById(R.id.random_game_main_menu_button);
         Button resetGame = findViewById(R.id.ResetBtn);
@@ -127,6 +132,16 @@ public class RandomGameActivity extends MainActivity {
             });
 
         }
+
+        nextStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(RandomGameActivity.this, "Next step clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 
     private void unsolveBoard(int unsolveSteps) {
