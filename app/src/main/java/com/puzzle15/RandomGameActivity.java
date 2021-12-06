@@ -134,15 +134,19 @@ public class RandomGameActivity extends MainActivity {
             });
 
         }
+//----------------------NEEEEEXXXXXTTTTTTT SSSSSTTTTTTEEEEEEPPPPPP---------------------------------------------------------------------------------------
 
         nextStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(RandomGameActivity.this, "Next step clicked", Toast.LENGTH_SHORT).show();
+
+                System.out.println();
+
             }
         });
 
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
 
     }
 
