@@ -46,7 +46,18 @@ public class CustomGameActivity extends MainActivity {
         btnStartAIPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CustomGameActivity.this, RandomGameActivityAI.class);
+                try {
+                    GameParams.turnsToFinish = Integer.parseInt(edtTxtStepsToFinish.getText().toString());
+                } catch(NumberFormatException nfe) {
+                    GameParams.turnsToFinish = 20;
+                }
+
+                GameParams.pictureId = imageSpinner.getSelectedItemId();
+                GameParams.cardStyle = CardStyleSpinner.getSelectedItemId();
+
+                GameParams.shouldAISolve = true;
+                GameParams.gameMode = "Custom";
+                Intent intent = new Intent(CustomGameActivity.this, RandomGameActivity.class);
                 startActivity(intent);
             }
         });

@@ -9,4 +9,6 @@ public class GameParams {
     public static int turnsToFinish;
     public static long cardStyle;
     public static long pictureId;
+
+    public static boolean shouldAISolve;
 }

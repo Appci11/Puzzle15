@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,10 +51,15 @@ public class RandomGameActivity extends MainActivity {
     private ConstraintLayout gameTileHolder;
     private ImageView[][] gameTiles = new ImageView[4][4];
 
+    public ArrayList<MoveAction> moveActions = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_game);
+
+        Log.v("Created Random Game Activity", "starting activity");
+
 
         Button menu = findViewById(R.id.random_game_main_menu_button);
         Button resetGame = findViewById(R.id.ResetBtn);
@@ -104,6 +112,13 @@ public class RandomGameActivity extends MainActivity {
             unsolveBoard(GameParams.turnsToFinish);
         }
 
+        if(GameParams.shouldAISolve){
+            try {
+                solveBoardAI();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void unsolveBoard(int unsolveSteps) {
@@ -115,7 +130,6 @@ public class RandomGameActivity extends MainActivity {
                     for (int column = 0; column < gameTiles[0].length; column++) {
                         int gameTileIndex = row * (gameTiles.length) + column;
                         ImageView gameTile = (ImageView) gameTileHolder.getChildAt(gameTileIndex);
-
                         if (gameTile.getContentDescription() == String.valueOf(0)) {
                             selectRandomTileAroundEmptyAndMove(gameTile, row, column);
                             stepDone = true;
@@ -128,7 +142,7 @@ public class RandomGameActivity extends MainActivity {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            Log.v("ERROR", "Some sort of error" + e);
         }
     }
 
@@ -140,33 +154,43 @@ public class RandomGameActivity extends MainActivity {
                 switch (direction) {
                     case 0: //left
                         if (column != 0) {
+                            moveActions.add(new MoveAction(row, row, column - 1, column));
                             //left has something! Move it to the empty spot
                             moveTile(gameTiles[row][column - 1], gameTile);
                             goodMoveFound = true;
+                            Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
                     case 1: //right
                         if (column != gameTiles[0].length - 1) {
+                            moveActions.add(new MoveAction(row, row, column + 1, column));
                             moveTile(gameTiles[row][column + 1], gameTile);
                             goodMoveFound = true;
+                            Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
                     case 2: //up
                         if (row != 0) {
+                            moveActions.add(new MoveAction(row - 1, row, column, column));
                             moveTile(gameTiles[row - 1][column], gameTile);
                             goodMoveFound = true;
+                            Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
                     case 3: //down
                         if (row != gameTiles.length - 1) {
+                            moveActions.add(new MoveAction(row + 1, row, column, column));
+
                             moveTile(gameTiles[row + 1][column], gameTile);
                             goodMoveFound = true;
+                            Log.v("Move", " From " + moveActions.get(moveActions.size()-1).fromXIndex + ", " + moveActions.get(moveActions.size()-1).fromYIndex + " to " + moveActions.get(moveActions.size()-1).toXIndex + ", "+ moveActions.get(moveActions.size()-1).toYIndex);
                         }
                         break;
 
                     default: //wtf
                         break;
                 }
+
         } while (!goodMoveFound);
     }
 
@@ -245,7 +269,7 @@ public class RandomGameActivity extends MainActivity {
 
     private void checkBoardChanges(ImageView gameTile, int row, int column) {
 
-        //Log.v("Image Clicked", String.valueOf(gameTile.getContentDescription()) + " " + row + " " + column);
+        if(GameParams.shouldAISolve) return;
 
         if (column != 0 && String.valueOf(gameTiles[row][column - 1].getContentDescription()).equals("0")) {
             //left is empty! Move to the left
@@ -461,4 +485,15 @@ public class RandomGameActivity extends MainActivity {
         super.onStop();
     }
 
+    private void solveBoardAI() throws InterruptedException {
+        for (int i = moveActions.size() - 1; i>0; i--) {
+            MoveAction action = moveActions.get(i);
+
+            ImageView fromTile = gameTiles[action.toXIndex][action.toYIndex];
+            ImageView toTile = gameTiles[action.fromXIndex][action.fromYIndex];
+
+            moveTile(fromTile, toTile);
+            Log.v("Move s ", " From " + action.fromXIndex + ", " + action.fromYIndex + " to " + +action.toXIndex + ", " + action.toYIndex);
+        }
+    }
 }
