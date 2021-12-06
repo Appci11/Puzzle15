@@ -268,9 +268,7 @@ public class RandomGameActivity extends MainActivity {
     }
 
     private void checkBoardChanges(ImageView gameTile, int row, int column) {
-
-        if(GameParams.shouldAISolve) return;
-
+        
         if (column != 0 && String.valueOf(gameTiles[row][column - 1].getContentDescription()).equals("0")) {
             //left is empty! Move to the left
             moveTile(gameTile, gameTiles[row][column - 1]);
