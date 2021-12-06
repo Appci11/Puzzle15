@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme_Green">
         <activity
+            android:name=".GameGuideAccount"
+            android:exported="true" />
+        <activity
+            android:name=".GameGuideCustomGame"
+            android:exported="true" />
+        <activity
+            android:name=".GameGuideRandomGame"
+            android:exported="true" />
+        <activity
+            android:name=".GameGuideAboutPuzzle"
+            android:exported="true" />
+        <activity
             android:name=".Test2Activity"
             android:exported="true" />
         <activity
