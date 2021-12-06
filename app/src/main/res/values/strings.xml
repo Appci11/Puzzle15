@@ -81,6 +81,18 @@
         <item>Custom</item>
     </array>
     <string name="title_activity_highscore">HighscoreActivity</string>
+    <string name="GameGuide">Game Guide</string>
+    <string name="AboutPuzzle15">About Puzzle15</string>
+    <string name="RandomGame">Random Game</string>
+    <string name="CustomGame">Custom Game</string>
+    <string name="Account">Account</string>
 
-
+    <string name="Puzzle15Text">The 15 puzzle (also called Gem Puzzle, Boss Puzzle, Game of Fifteen, Mystic Square and many others) is a sliding puzzle having 15 square tiles numbered 1–15 in a frame that is 4 tiles high and 4 tiles wide, leaving one unoccupied tile position. Tiles in the same row or column of the open position can be moved by sliding them horizontally or vertically, respectively. The goal of the puzzle is to place the tiles in numerical order</string>
+    <string name="RandomGameText">Random Game option gives you randomly generated Puzzle 15 game</string>
+    <string name="RandomGameText1">After wining game Wining Screen pops up with infomation such as : How much time taken , moves taken and Score</string>
+    <string name="CustomGameText1">Custom game option allows you to customize your game: How much steps to finish has to be and card style.</string>
+    <string name="CustomGameText2">Card style has 3 options: Numbers - usual puzzle 15 game , Letters - numbers changed to letter and Picture - to put together picture </string>
+    <string name="AccountText1">Account option gives you login or register to your account.User which  is log in can see his own highscores
+Login Screen:</string>
+    <string name="AccountText2">Registration screen:</string>
 </resources>
