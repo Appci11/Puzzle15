@@ -79,5 +79,5 @@
         <item>Antras</item>
         <item>Pasirinktinis</item>
     </array>
-
+    <string name="account">Account</string>
 </resources>

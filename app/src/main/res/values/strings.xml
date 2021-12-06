@@ -81,6 +81,9 @@
         <item>Custom</item>
     </array>
     <string name="title_activity_highscore">HighscoreActivity</string>
-
-
+    <string name="GameGuide">GameGuide</string>
+    <string name="AboutPuzzle15">About Puzzle15</string>
+    <string name="RandomGame">RandomGame</string>
+    <string name="CustomGame">CustomGame</string>
+    <string name="Account">Account</string>
 </resources>

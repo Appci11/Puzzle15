@@ -4,14 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btnToGameGuide3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:text="GameGuide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="484dp"
+        android:layout_height="877dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView7"
@@ -19,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="Custom Game"
                 android:textColor="@color/black"
-                android:textSize="70px"/>
+                android:textSize="70px" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -27,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="Custom game option allows you to customize your game: How much steps to finish has to be and card style."
                 android:textColor="@color/black"
-                android:textSize="50px"/>
+                android:textSize="50px" />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -39,27 +49,36 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Card style has 3 options: Numbers - usual puzzle 15 game , Letters - numbers changed to letter and Picture - to put together picture "
                 android:textColor="@color/black"
-                android:textSize="50px"
-                android:text="Card style has 3 options: Numbers - usual puzzle 15 game , Letters - numbers changed to letter and Picture - to put together picture "/>
+                android:textSize="50px" />
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="339dp"
                 app:srcCompat="@mipmap/number_game" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/letters_game" /><![CDATA[
+                app:srcCompat="@mipmap/letters_game" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="324dp"
+                app:srcCompat="@mipmap/picture" /><![CDATA[
+
+
 
 
 
 
 
             " />
+
 
 
         ]]>

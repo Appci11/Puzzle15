@@ -56,16 +56,11 @@
                 android:textColor="@color/black"
                 android:textSize="50px" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="378dp"
-                android:layout_height="338dp"
-                app:srcCompat="@mipmap/wining_screen" />
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/btnToGameGuide"
+        android:id="@+id/btnToGameGuide2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
